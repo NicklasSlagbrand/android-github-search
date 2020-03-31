@@ -1,9 +1,9 @@
-package com.valtech.baseline.feature.team
+package com.valtech.baseline.feature.repoList
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.valtech.baseline.data.viewmodel.ConsumableEvent
-import com.valtech.baseline.domain.model.Member
+import com.valtech.baseline.domain.model.GithubRepo
 import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
 import com.valtech.baseline.domain.usecase.StoreTeamMembersUseCase
 import com.valtech.baseline.domain.usecase.UseCase
@@ -12,12 +12,13 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TeamMembersViewModel(
+class ReposViewModel(
     private val getTeamMembersUseCase: GetTeamMembersUseCase,
     private val storeTeamMembersUseCase: StoreTeamMembersUseCase,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : BaseViewModel() {
     val eventsLiveData = MutableLiveData<ConsumableEvent<Event>>()
+    lateinit var activeGithubRepo: GithubRepo
 
     fun initialize() {
         viewModelScope.launch {
@@ -30,7 +31,11 @@ class TeamMembersViewModel(
         }
     }
 
-    private fun storeMembers(list: List<Member>) {
+    fun profileClicked(profile: GithubRepo) {
+        activeGithubRepo = profile
+    }
+
+    private fun storeMembers(list: List<GithubRepo>) {
         viewModelScope.launch {
             val result = withContext(backgroundDispatcher) {
                 storeTeamMembersUseCase.call(list)
@@ -41,6 +46,7 @@ class TeamMembersViewModel(
     }
 
     sealed class Event {
-        data class ShowTeam(val members: List<Member>) : Event()
+        data class ShowTeam(val githubRepos: List<GithubRepo>) : Event()
+        object ShowTeamMember : Event()
     }
 }

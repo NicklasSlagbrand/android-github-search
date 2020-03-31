@@ -15,7 +15,7 @@ import com.valtech.baseline.domain.error.Error
 import com.valtech.baseline.domain.error.Error.MissingNetworkConnection
 import com.valtech.baseline.feature.base.BaseFragment
 import com.valtech.baseline.feature.login.LoginViewModel.Event
-import com.valtech.baseline.feature.main.MainActivity
+import com.valtech.baseline.feature.repoList.ReposActivity
 import kotlinx.android.synthetic.main.fragment_login.btnLogin
 import kotlinx.android.synthetic.main.fragment_login.btnSignUp
 import kotlinx.android.synthetic.main.fragment_login.etEmail
@@ -70,7 +70,7 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun navigateToMainScreen() {
-        MainActivity.startActivity(requireContext())
+        ReposActivity.startActivity(requireContext())
 
         activity?.finish()
     }

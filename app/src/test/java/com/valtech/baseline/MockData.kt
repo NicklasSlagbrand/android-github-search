@@ -1,10 +1,10 @@
 package com.valtech.baseline
 
 import com.valtech.baseline.domain.model.Location
-import com.valtech.baseline.domain.model.Member
+import com.valtech.baseline.domain.model.GithubRepo
 
 @SuppressWarnings("MagicNumber")
-val testMember = Member(
+val testMember = GithubRepo(
     "Andriy",
     "Matkivskyy",
     "Mobile Developer",

@@ -30,13 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".feature.main.MainActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:theme="@style/WhiteBackground"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity
-            android:name=".feature.profile.ProfileActivity"
+            android:name=".feature.repoList.ReposActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/WhiteBackground" />

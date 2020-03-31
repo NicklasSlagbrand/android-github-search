@@ -1,6 +1,6 @@
 package com.valtech.baseline.domain.repository
 
-import com.valtech.baseline.data.datasource.remote.RemoteTeamMembersRepository
+import com.valtech.baseline.data.datasource.remote.RemoteGithubReposRepository
 import com.valtech.baseline.testMember
 import com.valtech.baseline.testutils.init
 import com.valtech.baseline.testutils.startKoin
@@ -19,7 +19,7 @@ import org.koin.test.inject
 
 class TeamMembersRepositoryTest : AutoCloseKoinTest() {
     private val mockWebServer = MockWebServer()
-    private val remotesRepository: RemoteTeamMembersRepository by inject()
+    private val remotesRepository: RemoteGithubReposRepository by inject()
 
     @Test(expected = retrofit2.HttpException::class)
     fun `check repository returns error if network failure happens`() {

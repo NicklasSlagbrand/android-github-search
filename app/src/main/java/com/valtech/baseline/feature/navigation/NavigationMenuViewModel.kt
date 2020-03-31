@@ -17,18 +17,6 @@ class NavigationMenuViewModel : ViewModel() {
         eventsLiveData.value = ConsumableEvent(ShowTeamView)
     }
 
-    fun showNetworkView() {
-        eventsLiveData.value = ConsumableEvent(Event.ShowNetworkView)
-    }
-
-    fun showExchangeView() {
-        eventsLiveData.value = ConsumableEvent(Event.ShowExchangeView)
-    }
-
-    fun showMessageView() {
-        eventsLiveData.value = ConsumableEvent(Event.ShowMessageView)
-    }
-
     fun onBackToScreen(shouldGoToCards: Boolean) {
         if (shouldGoToCards) {
             eventsLiveData.value = ConsumableEvent(ShowBackView)
@@ -37,9 +25,6 @@ class NavigationMenuViewModel : ViewModel() {
 
     sealed class Event {
         object ShowTeamView : Event()
-        object ShowExchangeView : Event()
-        object ShowNetworkView : Event()
-        object ShowMessageView : Event()
         object ShowBackView : Event()
     }
 }

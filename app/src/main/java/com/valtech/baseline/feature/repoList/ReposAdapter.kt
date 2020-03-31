@@ -1,4 +1,4 @@
-package com.valtech.baseline.feature.team
+package com.valtech.baseline.feature.repoList
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.valtech.baseline.R
 import com.valtech.baseline.core.extension.loadImageWithFitCenterTransform
-import com.valtech.baseline.domain.model.Member
+import com.valtech.baseline.domain.model.GithubRepo
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.item_team_member.view.*
 
-class TeamMembersAdapter(val context: Context) : RecyclerView.Adapter<TeamMembersAdapter.TeamMembersViewHolder>() {
-    var clickListener: (Member) -> Unit = {}
+class ReposAdapter(val context: Context) : RecyclerView.Adapter<ReposAdapter.TeamMembersViewHolder>() {
+    var clickListener: (GithubRepo) -> Unit = {}
 
-    var results: List<Member> by Delegates.observable(
+    var results: List<GithubRepo> by Delegates.observable(
         emptyList()
     ) { _, _, _ ->
         notifyDataSetChanged()
@@ -40,15 +40,15 @@ class TeamMembersAdapter(val context: Context) : RecyclerView.Adapter<TeamMember
 
     class TeamMembersViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val ivAvatar: ImageView = view.ivAvatar
-        private val tvName: TextView = view.tvName
-        private val tvPosition: TextView = view.tvPosition
+        private val tvName: TextView = view.tvTitle
+        private val tvDescription: TextView = view.tvDescription
 
-        fun bind(teamMember: Member, clickListener: (Member) -> Unit) {
-            tvName.text = "${teamMember.firstName} ${teamMember.lastName}"
-            tvPosition.text = teamMember.title
+        fun bind(teamMember: GithubRepo, clickListener: (GithubRepo) -> Unit) {
+            tvName.text = teamMember.title
+            tvDescription.text = teamMember.description
 
             ivAvatar.loadImageWithFitCenterTransform(
-                teamMember.avatarUrl,
+                teamMember.owner.avatarUrl?: "",
                 RequestOptions.circleCropTransform()
             )
 

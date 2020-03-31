@@ -1,7 +1,7 @@
 package com.valtech.baseline.domain.usecase
 
 import com.valtech.baseline.core.functional.Result
-import com.valtech.baseline.domain.repository.TeamMemberRepository
+import com.valtech.baseline.domain.repository.GithubRepository
 import com.valtech.baseline.testutils.failIfError
 import com.valtech.baseline.testutils.startKoin
 import io.mockk.clearAllMocks
@@ -17,7 +17,7 @@ import org.koin.test.inject
 
 class GetTeamMembersUseCaseTest : AutoCloseKoinTest() {
     private val useCase: GetTeamMembersUseCase by inject()
-    private val teamMembersRepository = mockk<TeamMemberRepository>()
+    private val teamMembersRepository = mockk<GithubRepository>()
 
     @Test
     fun `test use case works as expected`() {

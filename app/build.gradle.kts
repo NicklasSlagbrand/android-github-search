@@ -86,26 +86,7 @@ android {
             buildConfigField(
                 "String",
                 "API_BASE_URL",
-                "\"https://private-fd22c-valtechmobilebaselineapi.apiary-mock.com\""
-            )
-        }
-        create("qa") {
-            setDimension("main")
-            versionNameSuffix = ".qa"
-
-            buildConfigField(
-                "String",
-                "API_BASE_URL",
-                "\"https://private-fd22c-valtechmobilebaselineapi.apiary-mock.com\""
-            )
-        }
-        create("prod") {
-            setDimension("main")
-
-            buildConfigField(
-                "String",
-                "API_BASE_URL",
-                "\"https://private-fd22c-valtechmobilebaselineapi.apiary-mock.com\""
+                "\"https://api.github.com\""
             )
         }
     }

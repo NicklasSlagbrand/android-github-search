@@ -1,11 +1,11 @@
-package com.valtech.baseline.feature.team
+package com.valtech.baseline.feature.repoList
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.valtech.baseline.core.functional.Result
 import com.valtech.baseline.domain.error.Error
 import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
 import com.valtech.baseline.domain.usecase.UseCase
-import com.valtech.baseline.feature.team.TeamMembersViewModel.Event
+import com.valtech.baseline.feature.repoList.ReposViewModel.Event
 import com.valtech.baseline.testMember
 import com.valtech.baseline.testutils.CoroutinesMainDispatcherRule
 import com.valtech.baseline.testutils.startKoin
@@ -23,18 +23,18 @@ import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 
 @ExperimentalCoroutinesApi
-class TeamMembersViewModelTest : AutoCloseKoinTest() {
+class ReposViewModelTest : AutoCloseKoinTest() {
     @get:Rule
     val rule = InstantTaskExecutorRule()
     @get:Rule
     var coroutinesTestRule = CoroutinesMainDispatcherRule()
 
     private val getTeamMembers = mockk<GetTeamMembersUseCase>()
-    private val teamMembersViewModel: TeamMembersViewModel by inject()
+    private val reposViewModel: ReposViewModel by inject()
 
     @Test
     fun `check viewmodel handles happy case correctly`() = runBlockingTest {
-        val testObserver = teamMembersViewModel.eventsLiveData.testObserver()
+        val testObserver = reposViewModel.eventsLiveData.testObserver()
 
         coEvery {
             getTeamMembers.call(UseCase.None)
@@ -42,14 +42,14 @@ class TeamMembersViewModelTest : AutoCloseKoinTest() {
             Result.success(listOf(testMember))
         }
 
-        teamMembersViewModel.initialize()
+        reposViewModel.initialize()
 
         testObserver.shouldContainEvents(Event.ShowTeam(listOf(testMember)))
     }
 
     @Test
     fun `check viewmodel handles failure case correctly`() = runBlockingTest {
-        val testObserver = teamMembersViewModel.failure.testObserver()
+        val testObserver = reposViewModel.failure.testObserver()
 
         coEvery {
             getTeamMembers.call(UseCase.None)
@@ -57,7 +57,7 @@ class TeamMembersViewModelTest : AutoCloseKoinTest() {
             Result.failure(Error.MissingNetworkConnection)
         }
 
-        teamMembersViewModel.initialize()
+        reposViewModel.initialize()
 
         testObserver.shouldContainEvents(Error.MissingNetworkConnection)
     }

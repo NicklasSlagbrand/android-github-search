@@ -21,7 +21,7 @@
             tools:srcCompat="@tools:sample/avatars[14]" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -35,34 +35,7 @@
             tools:text="Andriy Matkivskyy" />
 
         <TextView
-            android:id="@+id/tvLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textAlignment="center"
-            android:textColor="@color/md_grey_500"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/ivAvatar"
-            app:layout_constraintStart_toStartOf="@+id/ivAvatar"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            tools:text="Ukraine, Dnipro" />
-
-        <TextView
-            android:id="@+id/tvSummaryLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/txt_summary_label"
-            android:textAlignment="center"
-            android:textAppearance="@style/MuliBoldTextAppearance"
-            android:textColor="@color/md_grey_500"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
-
-        <TextView
-            android:id="@+id/tvSummary"
+            android:id="@+id/tvDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -73,22 +46,9 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSummaryLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
             tools:text="@tools:sample/lorem[10]" />
 
-        <TextView
-            android:id="@+id/tvSkillsLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/txt_skills_label"
-            android:textAlignment="center"
-            android:textAppearance="@style/MuliBoldTextAppearance"
-            android:textColor="@color/md_grey_500"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSummary" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/cgSkillsGroup"
@@ -102,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSkillsLabel">
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription">
 
         </com.google.android.material.chip.ChipGroup>
 

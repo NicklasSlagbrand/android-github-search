@@ -20,7 +20,7 @@
         tools:srcCompat="@tools:sample/avatars[14]" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -33,7 +33,7 @@
         tools:text="Andriy Matkivskyy" />
 
     <TextView
-        android:id="@+id/tvPosition"
+        android:id="@+id/tvDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -43,8 +43,8 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvName"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="@tools:sample/lorem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

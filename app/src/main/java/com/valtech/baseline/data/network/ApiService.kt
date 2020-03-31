@@ -10,9 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 fun createTeamApi(
     debug: Boolean = false,
-    baseUrl: String = "http://private-fd22c-valtechmobilebaselineapi.apiary-mock.com",
+    baseUrl: String,
     connectionChecker: NetworkConnectionChecker
-): TeamApi {
+): GithubApi {
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .client(
@@ -23,7 +23,7 @@ fun createTeamApi(
         )
         .addConverterFactory(GsonConverterFactory.create(createNetworkResponseGson()))
         .build()
-        .create(TeamApi::class.java)
+        .create(GithubApi::class.java)
 }
 
 private fun createOkHttpClient(

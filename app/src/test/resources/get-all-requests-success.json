@@ -1,0 +1,55 @@
+{
+  "count": 4,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 22,
+      "avatar_thumbs": {
+        "small": null,
+        "medium": "http://www.chapelhillfamilydoctors.com.au/images/doctor-img2.png",
+        "large": null
+      },
+      "email": "user1@user.sd",
+      "first_name": "Devlan",
+      "last_name": "Mud",
+      "spetiality": "Doctor"
+    },
+    {
+      "id": 23,
+      "avatar_thumbs": {
+        "small": null,
+        "medium": "https://www.worldcare.com/wp-content/uploads/2015/11/DoctorMan.png",
+        "large": null
+      },
+      "email": "user2@user.sd",
+      "first_name": "Anton",
+      "last_name": "Pyatov",
+      "spetiality": "Doctor"
+    },
+    {
+      "id": 24,
+      "avatar_thumbs": {
+        "small": null,
+        "medium": "http://www.chapelhillfamilydoctors.com.au/images/doctor-img2.png",
+        "large": null
+      },
+      "email": "user3@user.sd",
+      "first_name": "Mark",
+      "last_name": "Avrelii",
+      "spetiality": "Surgeon"
+    },
+    {
+      "id": 25,
+      "avatar_thumbs": {
+        "small": null,
+        "medium": "https://www.worldcare.com/wp-content/uploads/2015/11/DoctorMan.png",
+        "large": null
+      },
+      "email": "user4@user.sd",
+      "first_name": "Anthony",
+      "last_name": "Celentano",
+      "spetiality": "Surgeon"
+    }
+  ]
+}

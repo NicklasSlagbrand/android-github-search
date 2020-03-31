@@ -1,0 +1,150 @@
+[
+  {
+    "firstName": "Andriy",
+    "lastName": "Matkivskyy",
+    "title": "Mobile Developer",
+    "locationString": "Ukraine, Dnipro",
+    "avatarUrl": "https://profiles.valtech.com/image/575a915805f7260d40b5fc37",
+    "location": {
+      "latitude": 48.465698,
+      "longitude": 35.051958
+    },
+    "summary": "Passionate and enthusiastic software engineer with more than 7 years of experience in software development. Quick learner in new technologies and skills. I am fond of delivering high-quality technical and architectural solutions. Most of all I love to deliver a high quality product which do exactly what customer needs.",
+    "linkedInUrl": "https://ua.linkedin.com/in/andriy-matkivskiy-44154673",
+    "skills": [
+      "Android",
+      "Java",
+      "JavaScript",
+      "Google Tag Manager",
+      "Google Analytics",
+      "REST",
+      "Node.js",
+      "Unit / Automatic test",
+      "Test driven development",
+      "Mobile application",
+      "Unit testing",
+      "Project estimation",
+      "Mobile Testing",
+      "Mobile Applications",
+      "User Acceptance Testing",
+      "Mobile Analytics",
+      "Fabric Analytics",
+      "Kotlin",
+      "Firebase",
+      "Clean architecture",
+      "Clean Code"
+    ]
+  },
+  {
+    "firstName": "Nicklas",
+    "lastName": "Slagbrand",
+    "title": "Android developer / Lead developer",
+    "locationString": "Denmark, Copenhagen",
+    "avatarUrl": "https://profiles.valtech.com/image/5cc6dace05f7260bd8797a89",
+    "location": {
+      "latitude": 55.679477,
+      "longitude": 12.606453
+    },
+    "summary": "I'm an Android / Lead developer with +4 years of professional experience on building Mobile applications and Web solutions. I have a great interest in Android development and due to the variety of applications I have developed, I have extensive experience with different types of integration and solutions. Typically working as a technical lead on mobile projects setting the fundamental structure. I almost exclusively work on international projects setting requirements and defining a technical blueprint for implementations.",
+    "linkedInUrl": "https://www.linkedin.com/in/nicklas-slagbrand-830b773b",
+    "skills": [
+      "Java",
+      "Amazon Web Services",
+      "Gradle",
+      "Gulp.js",
+      "REST & SAOP",
+      "Google Cloud Platform",
+      "Kotlin",
+      "Firebase",
+      "Clean architecture",
+      "RxJava",
+      "Dagger",
+      "Realm"
+    ]
+  },
+  {
+    "firstName": "Dmitriy",
+    "lastName": "Sai",
+    "title": "iOS Developer",
+    "locationString": "Ukraine, Dnipro",
+    "avatarUrl": "https://profiles.valtech.com/image/5ae97ff305f726163c594168",
+    "location": {
+      "latitude": 48.465698,
+      "longitude": 35.051958
+    },
+    "summary": "● Client focused iOS Developer with over 7 years of experience building and delivering highly scalable, reliable, and complex software systems on time and on budget. ● Experience with multi-threaded programming ● Excellent analytical and problem solving skill ● Ability to work well with others within and across teams, and with geographically distributed teams ● Expert experience in Agile delivery, and development and operations processes and tools ● Highly developed written and oral communication, leadership, conflict resolution and negotiation skills ● Active participant and holder of various lectures and presentations on iOS development ● Good experience in Swift ● Very good experience in code refactoring ● Presentations: Data Base architecture, Auto Layout and flexible UI, Dynamics animation, Design patterns (MVC), Clean Code",
+    "linkedInUrl": "",
+    "skills": [
+      "CSS",
+      "Objective C",
+      "REST",
+      "GIT",
+      "Object Oriented Programming",
+      "iOS Development",
+      "TDD",
+      "Swift",
+      "MVC architecture",
+      "POP"
+    ]
+  },
+  {
+    "firstName": "Anton",
+    "lastName": "Kryzhanovskiy",
+    "title": "iOS Developer",
+    "locationString": "Ukraine, Dnipro",
+    "avatarUrl": "https://profiles.valtech.com/image/5b3a162705f7260bd43a70f7",
+    "location": {
+      "latitude": 48.465698,
+      "longitude": 35.051958
+    },
+    "summary": "I'm iOS developer with more than 5 years of experience in commercial development of iOS applications.",
+    "linkedInUrl": "https://www.linkedin.com/in/anton-kryzhanovskiy-49357b56/",
+    "skills": [
+      "REST",
+      "GIT",
+      "Object Oriented Programming",
+      "iOS Development",
+      "Swift",
+      "Design Patterns",
+      "Xcode",
+      "Objective-C"
+    ]
+  },
+  {
+    "firstName": "Oleksii",
+    "lastName": " Dobrunov",
+    "title": "Android Consultant",
+    "locationString": "Ukraine, Kharkiv",
+    "avatarUrl": "https://profiles.valtech.com/image/5b6ad85705f7260c788289b8",
+    "location": {
+      "latitude": 49.987915,
+      "longitude": 36.222343
+    },
+    "summary": "With approximately 8 years of experience as an Android application developer, 2 years in Java enterprise development, and 2 years in the web development, I'm continually enhancing my skills in the fields of Java and Android programming. I have 10+ years of experience in IT, which gives me a solid background to solve complex problems and manage teams of developers. I've worked in a variety of industries ranging from the gaming industry to business, enterprise applications and development SDK libraries.",
+    "linkedInUrl": "https://www.linkedin.com/in/odobrunov",
+    "skills": [
+      "Android",
+      "C++",
+      "Java",
+      "JavaScript",
+      "PHP",
+      "Google Tag Manager",
+      "Video",
+      "QA Automation",
+      "Object Oriented Programming",
+      "Application Development",
+      "Web development",
+      "WordPress",
+      "Test driven development",
+      "Mobile application",
+      "Unit testing",
+      "Teaching",
+      "Joomla",
+      "Google Material",
+      "Digital media",
+      "Mobile Analytics",
+      "Kotlin",
+      "Firebase"
+    ]
+  }
+]

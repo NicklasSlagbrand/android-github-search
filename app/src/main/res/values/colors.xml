@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/darkSlateBlue</color>
+    <color name="colorPrimaryLight">#eff3fa</color>
+    <color name="colorPrimaryDark">#152b51</color>
+    <color name="colorAccent">#eff3fa</color>
+
+    <color name="searchGray">#8F8F8F</color>
+    <color name="greenColorOrks">#32825d</color>
+    <color name="greenColorLeaf">#1e553e</color>
+    <color name="greenColor">#307c59</color>
+
+    <color name="colorRemovePersonButtonDisabled">#9CC6B2</color>
+    <color name="colorAddToBasketButtonDisabled">#B6B5B5</color>
+    <color name="colorRedeemButton">#8e8f8f</color>
+
+    <color name="colorPlaceholderBg">#F2F2F2F2</color>
+
+    <!-- Override MaterialDrawer default colors -->
+    <color name="material_drawer_background">@color/colorPrimary</color>
+    <color name="translucentBackgroundSearch">#66000000</color>
+
+    <color name="colorLightBlack">#59141414</color>
+    <color name="colorDarkBlack">#FF000000</color>
+    <color name="yellowSun">#ffd81b</color>
+
+    <!-- Project colors -->
+	<color name="brownGrey">#9B9B9B</color>
+    <color name="grayDarkAsphalt">#e1e1e1</color>
+    <color name="clearMorningBlue">#eff3fa</color>
+    <color name="clearBlue">#2779ee</color>
+    <color name="darkSlateBlue">#1b3666</color>
+    <color name="darkSlateBlueTranslucent">#801b3666</color>
+    <color name="darkSkyBlue">#3c7ae6</color>
+	<color name="darkCloudySkyBlue">#d7e1f3</color>
+	<color name="cleanSkyGray">#f3f3f3</color>
+	<color name="paleYellowApple">#fff3ba</color>
+    <color name="colorGrayLight">#f7f7f7</color>
+	<color name="clearMorningGray">#f7f7f7</color>
+	<color name="duskBlue">#29529b</color>
+	<color name="paleGrey">#f7f7f7</color>
+</resources>

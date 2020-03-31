@@ -1,0 +1,254 @@
+{
+  "currentPageUrl": "/services/data/v45.0/chatter/users/0051i000000q9AcAAI/following",
+  "following": [
+    {
+      "community": null,
+      "id": "0E81i000000HWKNCA4",
+      "subject": {
+        "additionalLabel": null,
+        "communityNickname": "masonthompson1.4852730318436956E12",
+        "companyName": "Test-Org : Fonteva",
+        "displayName": "Mason Thompson",
+        "firstName": "Mason",
+        "id": "0051i000000J7uQAAS",
+        "isActive": true,
+        "isInThisCommunity": true,
+        "lastName": "Thompson",
+        "motif": {
+          "color": "65CAE4",
+          "largeIconUrl": "/img/icon/profile64.png",
+          "mediumIconUrl": "/img/icon/profile32.png",
+          "smallIconUrl": "/img/icon/profile16.png",
+          "svgIconUrl": null
+        },
+        "mySubscription": {
+          "id": "0E81i000000HWKNCA4",
+          "url": "/services/data/v45.0/chatter/subscriptions/0E81i000000HWKNCA4"
+        },
+        "name": "Mason Thompson",
+        "outOfOffice": {
+          "message": ""
+        },
+        "photo": {
+          "fullEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAHxHshWyLJpISXlvWSYZYBghFpqjYijNg8akYWptl3_HY?fromEmail=1",
+          "largePhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c400/F",
+          "mediumPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c400/M",
+          "photoVersionId": "7291i000000c400AAA",
+          "smallPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c400/T",
+          "standardEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAHxHshWyLJpISXlvWSYZYBggoauZX4Q5fFuF6Lu0rRFco?fromEmail=1",
+          "url": "/services/data/v45.0/connect/user-profiles/0051i000000J7uQAAS/photo"
+        },
+        "reputation": null,
+        "title": null,
+        "type": "User",
+        "url": "/services/data/v45.0/chatter/users/0051i000000J7uQAAS",
+        "userType": "Internal"
+      },
+      "subscriber": {
+        "additionalLabel": null,
+        "communityNickname": "aotester1.5507984087375693E12",
+        "companyName": "Test-Org : Fonteva",
+        "displayName": "Susan Davis",
+        "firstName": "Susan",
+        "id": "0051i000000q9AcAAI",
+        "isActive": true,
+        "isInThisCommunity": true,
+        "lastName": "Davis",
+        "motif": {
+          "color": "65CAE4",
+          "largeIconUrl": "/img/icon/profile64.png",
+          "mediumIconUrl": "/img/icon/profile32.png",
+          "smallIconUrl": "/img/icon/profile16.png",
+          "svgIconUrl": null
+        },
+        "mySubscription": null,
+        "name": "Susan Davis",
+        "outOfOffice": {
+          "message": ""
+        },
+        "photo": {
+          "fullEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH4owgF74CJh-ExQEOykmSlMB_LYp9o3mF739KamTPwMi?fromEmail=1",
+          "largePhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/F",
+          "mediumPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/M",
+          "photoVersionId": "7291i000000c3zoAAA",
+          "smallPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/T",
+          "standardEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH4owgF74CJh-ExQEOykmSlN4DfW7Fwp3wu0e-IDIPLtM?fromEmail=1",
+          "url": "/services/data/v45.0/connect/user-profiles/0051i000000q9AcAAI/photo"
+        },
+        "reputation": null,
+        "title": null,
+        "type": "User",
+        "url": "/services/data/v45.0/chatter/users/0051i000000q9AcAAI",
+        "userType": "Internal"
+      },
+      "url": "/services/data/v45.0/chatter/subscriptions/0E81i000000HWKNCA4"
+    },
+    {
+      "community": null,
+      "id": "0E81i000000HWKPCA4",
+      "subject": {
+        "additionalLabel": null,
+        "communityNickname": "mackenziegriffin1.4852730337372021E12",
+        "companyName": "Test-Org : Fonteva",
+        "displayName": "Mackenzie Griffin",
+        "firstName": "Mackenzie",
+        "id": "0051i000000J7uRAAS",
+        "isActive": true,
+        "isInThisCommunity": true,
+        "lastName": "Griffin",
+        "motif": {
+          "color": "65CAE4",
+          "largeIconUrl": "/img/icon/profile64.png",
+          "mediumIconUrl": "/img/icon/profile32.png",
+          "smallIconUrl": "/img/icon/profile16.png",
+          "svgIconUrl": null
+        },
+        "mySubscription": {
+          "id": "0E81i000000HWKPCA4",
+          "url": "/services/data/v45.0/chatter/subscriptions/0E81i000000HWKPCA4"
+        },
+        "name": "Mackenzie Griffin",
+        "outOfOffice": {
+          "message": ""
+        },
+        "photo": {
+          "fullEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH-j0sSfGAY93nitWbc5tva1WPEgFAtm3AnzkuNGHYTLF?fromEmail=1",
+          "largePhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c401/F",
+          "mediumPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c401/M",
+          "photoVersionId": "7291i000000c401AAA",
+          "smallPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c401/T",
+          "standardEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH-j0sSfGAY93nitWbc5tva1Ao_oUcrXVecXHFYoR6H2U?fromEmail=1",
+          "url": "/services/data/v45.0/connect/user-profiles/0051i000000J7uRAAS/photo"
+        },
+        "reputation": null,
+        "title": null,
+        "type": "User",
+        "url": "/services/data/v45.0/chatter/users/0051i000000J7uRAAS",
+        "userType": "Internal"
+      },
+      "subscriber": {
+        "additionalLabel": null,
+        "communityNickname": "aotester1.5507984087375693E12",
+        "companyName": "Test-Org : Fonteva",
+        "displayName": "Susan Davis",
+        "firstName": "Susan",
+        "id": "0051i000000q9AcAAI",
+        "isActive": true,
+        "isInThisCommunity": true,
+        "lastName": "Davis",
+        "motif": {
+          "color": "65CAE4",
+          "largeIconUrl": "/img/icon/profile64.png",
+          "mediumIconUrl": "/img/icon/profile32.png",
+          "smallIconUrl": "/img/icon/profile16.png",
+          "svgIconUrl": null
+        },
+        "mySubscription": null,
+        "name": "Susan Davis",
+        "outOfOffice": {
+          "message": ""
+        },
+        "photo": {
+          "fullEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH4owgF74CJh-ExQEOykmSlMB_LYp9o3mF739KamTPwMi?fromEmail=1",
+          "largePhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/F",
+          "mediumPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/M",
+          "photoVersionId": "7291i000000c3zoAAA",
+          "smallPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/T",
+          "standardEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH4owgF74CJh-ExQEOykmSlN4DfW7Fwp3wu0e-IDIPLtM?fromEmail=1",
+          "url": "/services/data/v45.0/connect/user-profiles/0051i000000q9AcAAI/photo"
+        },
+        "reputation": null,
+        "title": null,
+        "type": "User",
+        "url": "/services/data/v45.0/chatter/users/0051i000000q9AcAAI",
+        "userType": "Internal"
+      },
+      "url": "/services/data/v45.0/chatter/subscriptions/0E81i000000HWKPCA4"
+    },
+    {
+      "community": null,
+      "id": "0E81i000000HWKRCA4",
+      "subject": {
+        "additionalLabel": null,
+        "communityNickname": "carsonmoore1.485273028632281E12",
+        "companyName": "Test-Org : Fonteva",
+        "displayName": "Carson Moore",
+        "firstName": "Carson",
+        "id": "0051i000000J7uPAAS",
+        "isActive": true,
+        "isInThisCommunity": true,
+        "lastName": "Moore",
+        "motif": {
+          "color": "65CAE4",
+          "largeIconUrl": "/img/icon/profile64.png",
+          "mediumIconUrl": "/img/icon/profile32.png",
+          "smallIconUrl": "/img/icon/profile16.png",
+          "svgIconUrl": null
+        },
+        "mySubscription": {
+          "id": "0E81i000000HWKRCA4",
+          "url": "/services/data/v45.0/chatter/subscriptions/0E81i000000HWKRCA4"
+        },
+        "name": "Carson Moore",
+        "outOfOffice": {
+          "message": ""
+        },
+        "photo": {
+          "fullEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH1_c8AsTVl1zRfPdKhfL6FGqufEpT_-2kd2L0EFWhhj5?fromEmail=1",
+          "largePhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zz/F",
+          "mediumPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zz/M",
+          "photoVersionId": "7291i000000c3zzAAA",
+          "smallPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zz/T",
+          "standardEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH1_c8AsTVl1zRfPdKhfL6FFM_7IHiseIW5QNodVEupt3?fromEmail=1",
+          "url": "/services/data/v45.0/connect/user-profiles/0051i000000J7uPAAS/photo"
+        },
+        "reputation": null,
+        "title": null,
+        "type": "User",
+        "url": "/services/data/v45.0/chatter/users/0051i000000J7uPAAS",
+        "userType": "Internal"
+      },
+      "subscriber": {
+        "additionalLabel": null,
+        "communityNickname": "aotester1.5507984087375693E12",
+        "companyName": "Test-Org : Fonteva",
+        "displayName": "Susan Davis",
+        "firstName": "Susan",
+        "id": "0051i000000q9AcAAI",
+        "isActive": true,
+        "isInThisCommunity": true,
+        "lastName": "Davis",
+        "motif": {
+          "color": "65CAE4",
+          "largeIconUrl": "/img/icon/profile64.png",
+          "mediumIconUrl": "/img/icon/profile32.png",
+          "smallIconUrl": "/img/icon/profile16.png",
+          "svgIconUrl": null
+        },
+        "mySubscription": null,
+        "name": "Susan Davis",
+        "outOfOffice": {
+          "message": ""
+        },
+        "photo": {
+          "fullEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH4owgF74CJh-ExQEOykmSlMB_LYp9o3mF739KamTPwMi?fromEmail=1",
+          "largePhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/F",
+          "mediumPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/M",
+          "photoVersionId": "7291i000000c3zoAAA",
+          "smallPhotoUrl": "https://gdo7hbbuy--c.eu19.content.force.com/profilephoto/7291i000000c3zo/T",
+          "standardEmailPhotoUrl": "https://gdo7hbbuy.my.salesforce.com/ncsphoto/WYiNWgu-c9oMAAW8-VdAH4owgF74CJh-ExQEOykmSlN4DfW7Fwp3wu0e-IDIPLtM?fromEmail=1",
+          "url": "/services/data/v45.0/connect/user-profiles/0051i000000q9AcAAI/photo"
+        },
+        "reputation": null,
+        "title": null,
+        "type": "User",
+        "url": "/services/data/v45.0/chatter/users/0051i000000q9AcAAI",
+        "userType": "Internal"
+      },
+      "url": "/services/data/v45.0/chatter/subscriptions/0E81i000000HWKRCA4"
+    }
+  ],
+  "nextPageUrl": null,
+  "previousPageUrl": null,
+  "total": 3
+}

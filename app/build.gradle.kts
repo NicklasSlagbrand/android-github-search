@@ -105,6 +105,8 @@ dependencies {
     val koinVersion = "2.1.5"
     val coroutinesVersion = "1.3.3"
     val glideVersion = "4.11.0"
+    val navVersion = "2.3.0-alpha04"
+
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
@@ -134,6 +136,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     implementation("com.github.razir.progressbutton:progressbutton:1.0.3")
+    // Kotlin
+    implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     testImplementation("junit:junit:4.13")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.4.0")

@@ -15,7 +15,7 @@ import com.valtech.baseline.domain.error.Error
 import com.valtech.baseline.domain.error.Error.MissingNetworkConnection
 import com.valtech.baseline.feature.base.BaseFragment
 import com.valtech.baseline.feature.login.LoginViewModel.Event
-import com.valtech.baseline.feature.repoList.ReposActivity
+import com.valtech.baseline.feature.repo.ReposActivity
 import kotlinx.android.synthetic.main.fragment_login.btnLogin
 import kotlinx.android.synthetic.main.fragment_login.btnSignUp
 import kotlinx.android.synthetic.main.fragment_login.etEmail

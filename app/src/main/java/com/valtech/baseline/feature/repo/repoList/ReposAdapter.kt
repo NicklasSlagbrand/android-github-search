@@ -1,4 +1,4 @@
-package com.valtech.baseline.feature.repoList
+package com.valtech.baseline.feature.repo.repoList
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.valtech.baseline.feature.repoList
+package com.valtech.baseline.feature.repo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,11 @@ import com.valtech.baseline.core.extension.observeEvents
 import com.valtech.baseline.core.extension.visible
 import com.valtech.baseline.domain.model.GithubRepo
 import com.valtech.baseline.feature.base.BaseFragment
+import com.valtech.baseline.feature.repo.repoList.ReposAdapter
 import kotlinx.android.synthetic.main.team_memers_fragment.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class ReposFragment : BaseFragment() {
+class ReposHostFragment : BaseFragment() {
     private val viewModel: ReposViewModel by sharedViewModel()
 
     override fun onCreateView(
@@ -33,22 +34,9 @@ class ReposFragment : BaseFragment() {
     private fun subscribeToLiveData() {
         observeEvents(viewModel.eventsLiveData) {
             when (it) {
-                is ReposViewModel.Event.ShowTeam -> showMembersList(it.githubRepos)
+                is ReposViewModel.Event.ShowRepos -> {}
             }
         }
         observeEvents(viewModel.failure, ::handleFailure)
-    }
-
-    private fun showMembersList(githubRepos: List<GithubRepo>) {
-        progressMembers.invisible()
-
-        val adapter = ReposAdapter(requireContext()).apply {
-            clickListener = { member ->
-                viewModel.profileClicked(member)
-            }
-            results = githubRepos
-        }
-        rvTeamMembers.adapter = adapter
-        rvTeamMembers.visible()
     }
 }

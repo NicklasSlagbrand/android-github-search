@@ -1,4 +1,4 @@
-package com.valtech.baseline.feature.repoDetails
+package com.valtech.baseline.feature.repo.repoDetails
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.valtech.baseline.R
 import com.valtech.baseline.core.extension.loadImageWithFitCenterTransform
 import com.valtech.baseline.domain.model.GithubRepo
 import com.valtech.baseline.feature.base.BaseFragment
-import com.valtech.baseline.feature.repoList.ReposViewModel
+import com.valtech.baseline.feature.repo.ReposViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 

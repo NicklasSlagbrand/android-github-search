@@ -15,7 +15,7 @@ import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
 import com.valtech.baseline.domain.usecase.StoreTeamMembersUseCase
 import com.valtech.baseline.feature.login.LoginViewModel
 import com.valtech.baseline.feature.navigation.NavigationMenuViewModel
-import com.valtech.baseline.feature.repoList.ReposViewModel
+import com.valtech.baseline.feature.repo.ReposViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module

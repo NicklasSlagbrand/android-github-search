@@ -1,4 +1,4 @@
-package com.valtech.baseline.feature.repoList
+package com.valtech.baseline.feature.repo
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -12,7 +12,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ReposViewModel(
+class ReposViewModel (
     private val getTeamMembersUseCase: GetTeamMembersUseCase,
     private val storeTeamMembersUseCase: StoreTeamMembersUseCase,
     private val backgroundDispatcher: CoroutineDispatcher
@@ -26,13 +26,18 @@ class ReposViewModel(
                 getTeamMembersUseCase.call(UseCase.None)
             }
             result.fold({
-                eventsLiveData.value = ConsumableEvent(Event.ShowTeam(it))
+                eventsLiveData.value = ConsumableEvent(Event.ShowRepos(it))
             }, ::handleFailure)
         }
     }
 
-    fun profileClicked(profile: GithubRepo) {
-        activeGithubRepo = profile
+    fun reposClicked(repo: GithubRepo) {
+        activeGithubRepo = repo
+        showRepoDetails(repo)
+    }
+
+    private fun showRepoDetails(repo: GithubRepo) {
+        eventsLiveData.value = ConsumableEvent(Event.ShowRepoDetails(repo))
     }
 
     private fun storeMembers(list: List<GithubRepo>) {
@@ -46,7 +51,7 @@ class ReposViewModel(
     }
 
     sealed class Event {
-        data class ShowTeam(val githubRepos: List<GithubRepo>) : Event()
-        object ShowTeamMember : Event()
+        data class ShowRepos(val githubRepos: List<GithubRepo>) : Event()
+        data class ShowRepoDetails(val repo: GithubRepo): Event()
     }
 }

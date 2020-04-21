@@ -1,11 +1,11 @@
-package com.valtech.baseline.feature.repoList
+package com.valtech.baseline.feature.repo
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.valtech.baseline.core.functional.Result
 import com.valtech.baseline.domain.error.Error
 import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
 import com.valtech.baseline.domain.usecase.UseCase
-import com.valtech.baseline.feature.repoList.ReposViewModel.Event
+import com.valtech.baseline.feature.repo.ReposViewModel.Event
 import com.valtech.baseline.testMember
 import com.valtech.baseline.testutils.CoroutinesMainDispatcherRule
 import com.valtech.baseline.testutils.startKoin

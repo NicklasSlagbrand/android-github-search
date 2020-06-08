@@ -21,7 +21,6 @@ build/
 # generated files
 bin/
 gen/
-build/
 out/
 release/
 

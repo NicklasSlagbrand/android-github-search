@@ -4,9 +4,9 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import com.valtech.baseline.data.di.androidPlatformModule
-import com.valtech.baseline.data.di.generalAppModule
-import com.valtech.baseline.data.di.useCaseAndViewModelModule
+import com.valtech.baseline.core.di.androidPlatformModule
+import com.valtech.baseline.core.di.generalAppModule
+import com.valtech.baseline.core.di.useCaseAndViewModelModule
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import net.danlew.android.joda.JodaTimeAndroid
@@ -37,7 +37,7 @@ class AndroidApp : Application() {
         Realm.init(this)
         Realm.setDefaultConfiguration(
             RealmConfiguration.Builder()
-                .name("action.realm")
+                .name("baseline.realm")
                 .deleteRealmIfMigrationNeeded()
                 .build()
         )

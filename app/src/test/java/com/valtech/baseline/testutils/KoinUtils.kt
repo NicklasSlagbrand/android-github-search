@@ -1,8 +1,8 @@
 package com.valtech.baseline.testutils
 
 import com.valtech.baseline.Constants
-import com.valtech.baseline.data.di.generalAppModule
-import com.valtech.baseline.data.di.useCaseAndViewModelModule
+import com.valtech.baseline.core.di.generalAppModule
+import com.valtech.baseline.core.di.useCaseAndViewModelModule
 import com.valtech.baseline.data.network.NetworkConnectionChecker
 import com.valtech.baseline.domain.TimeHandler
 import kotlinx.coroutines.CoroutineDispatcher

@@ -1,7 +1,7 @@
 package com.valtech.baseline.domain.repository
 
 import com.valtech.baseline.data.datasource.remote.RemoteGithubReposRepository
-import com.valtech.baseline.testMember
+import com.valtech.baseline.testRepo
 import com.valtech.baseline.testutils.init
 import com.valtech.baseline.testutils.startKoin
 import com.valtech.baseline.testutils.successFromFile
@@ -39,7 +39,7 @@ class TeamMembersRepositoryTest : AutoCloseKoinTest() {
             mockWebServer.enqueue(successFromFile("get-team-members-success.json"))
 
             val members = remotesRepository.getTeamMembers()
-            members.shouldContain(testMember)
+            members.shouldContain(testRepo)
         }
     }
 

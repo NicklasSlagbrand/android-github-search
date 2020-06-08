@@ -40,7 +40,7 @@ class FileGenerator extends DefaultTask {
     }
     void updateFiles(String targetFilePath, String targetString) {
         try {
-            Path path = Paths.get(targetFilePath);
+            Path path = Paths.get(targetFilePath)
             Stream<String> lines = Files.lines(path)
             List <String> replaced = []
             for(String line : lines){

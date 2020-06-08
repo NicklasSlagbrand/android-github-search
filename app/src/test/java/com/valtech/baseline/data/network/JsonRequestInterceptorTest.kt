@@ -5,7 +5,7 @@ import io.mockk.mockk
 import io.mockk.slot
 import okhttp3.Interceptor
 import okhttp3.Request
-import org.amshove.kluent.shouldEqual
+import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Test
 
 class JsonRequestInterceptorTest {
@@ -24,7 +24,7 @@ class JsonRequestInterceptorTest {
 
         requestInterceptor.intercept(testChain)
 
-        argument.captured.header("accept").shouldEqual("application/json")
-        argument.captured.header("Content-Type").shouldEqual("application/json")
+        argument.captured.header("accept").shouldBeEqualTo("application/json")
+        argument.captured.header("Content-Type").shouldBeEqualTo("application/json")
     }
 }

@@ -3,11 +3,11 @@ package com.valtech.baseline.testutils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.valtech.baseline.data.viewmodel.ConsumableEvent
+import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldContainSame
-import org.amshove.kluent.shouldEqualTo
 
 class TestObserver<T> : Observer<T> {
-    val observedValues = mutableListOf<T>()
+    private val observedValues = mutableListOf<T>()
 
     fun skipPreviousLiveDataEvents() {
         observedValues.clear()
@@ -30,7 +30,7 @@ class TestObserver<T> : Observer<T> {
     }
 
     fun shouldBeEmpty() {
-        observedValues.size.shouldEqualTo(0)
+        observedValues.size.shouldBeEqualTo(0)
     }
 
     override fun onChanged(value: T) {

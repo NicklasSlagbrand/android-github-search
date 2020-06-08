@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.valtech.baseline.data.viewmodel.ConsumableEvent
 import com.valtech.baseline.domain.model.GithubRepo
-import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
-import com.valtech.baseline.domain.usecase.StoreTeamMembersUseCase
+import com.valtech.baseline.domain.usecase.GetRepoListUseCase
+import com.valtech.baseline.domain.usecase.StoreRepoListUseCase
 import com.valtech.baseline.domain.usecase.UseCase
 import com.valtech.baseline.feature.base.BaseViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ReposViewModel (
-    private val getTeamMembersUseCase: GetTeamMembersUseCase,
-    private val storeTeamMembersUseCase: StoreTeamMembersUseCase,
+    private val getRepoListUseCase: GetRepoListUseCase,
+    private val storeRepoListUseCase: StoreRepoListUseCase,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : BaseViewModel() {
     val eventsLiveData = MutableLiveData<ConsumableEvent<Event>>()
@@ -23,7 +23,7 @@ class ReposViewModel (
     fun initialize() {
         viewModelScope.launch {
             val result = withContext(backgroundDispatcher) {
-                getTeamMembersUseCase.call(UseCase.None)
+                getRepoListUseCase.call(UseCase.None)
             }
             result.fold({
                 eventsLiveData.value = ConsumableEvent(Event.ShowRepos(it))
@@ -43,7 +43,7 @@ class ReposViewModel (
     private fun storeMembers(list: List<GithubRepo>) {
         viewModelScope.launch {
             val result = withContext(backgroundDispatcher) {
-                storeTeamMembersUseCase.call(list)
+                storeRepoListUseCase.call(list)
             }
             result.fold({
             }, ::handleFailure)

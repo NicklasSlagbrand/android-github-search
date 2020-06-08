@@ -8,5 +8,4 @@ sealed class Error {
     }
 
     object MissingNetworkConnection : Error()
-    object TokenMissingError : Error()
 }

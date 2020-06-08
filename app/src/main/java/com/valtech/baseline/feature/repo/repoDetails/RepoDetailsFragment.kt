@@ -9,14 +9,14 @@ import com.valtech.baseline.core.extension.loadImageWithFitCenterTransform
 import com.valtech.baseline.domain.model.GithubRepo
 import com.valtech.baseline.feature.base.BaseFragment
 import com.valtech.baseline.feature.repo.ReposViewModel
-import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_repo_details.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class RepoDetailsFragment : BaseFragment() {
     private val viewModel: ReposViewModel by sharedViewModel()
     private lateinit var githubRepo: GithubRepo
 
-    override fun provideLayoutId()= R.layout.fragment_profile
+    override fun provideLayoutId()= R.layout.fragment_repo_details
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

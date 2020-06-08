@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.awesome.shorty.AwesomeToast
 import com.valtech.baseline.domain.error.Error
@@ -31,27 +29,7 @@ open class BaseFragment : Fragment() {
         notifyError("Faced an error: $errorEvent.")
     }
 
-    fun str(res: Int) = getString(res)
-
-    internal fun notifyWarning(@StringRes message: Int) =
-        AwesomeToast.warning(
-            activity as Context, str(message),
-            DEFAULT_TOAST_DURATION_SEC
-        ).show()
-
-    internal fun notifyWarning(message: String) =
-        AwesomeToast.warning(
-            activity as Context, message,
-            DEFAULT_TOAST_DURATION_SEC
-        ).show()
-
-    internal fun notifyError(@StringRes message: Int) =
-        AwesomeToast.error(
-            activity as Context, str(message),
-            DEFAULT_TOAST_DURATION_SEC
-        ).show()
-
-    internal fun notifyError(message: String) =
+    private fun notifyError(message: String) =
         AwesomeToast.error(
             activity as Context, message,
             DEFAULT_TOAST_DURATION_SEC

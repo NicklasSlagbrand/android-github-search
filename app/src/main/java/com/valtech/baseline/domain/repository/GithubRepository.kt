@@ -26,12 +26,4 @@ class GithubRepository(
             return@wrapResult localRepository.storeMembers(githubRepos)
         }
     }
-
-    private fun mapUserExceptionToError(exception: Exception): Error {
-        return when (exception) {
-            is NoNetworkConnectionException -> Error.MissingNetworkConnection
-            is UnknownHostException -> Error.MissingNetworkConnection
-            else -> Error.GeneralError(exception)
-        }
-    }
 }

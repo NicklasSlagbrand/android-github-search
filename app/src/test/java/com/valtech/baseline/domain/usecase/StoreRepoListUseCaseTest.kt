@@ -15,8 +15,8 @@ import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 
-class StoreTeamMembersUseCaseTest : AutoCloseKoinTest() {
-    private val useCase: StoreTeamMembersUseCase by inject()
+class StoreRepoListUseCaseTest : AutoCloseKoinTest() {
+    private val useCase: StoreRepoListUseCase by inject()
     private val teamMembersRepository = mockk<GithubRepository>()
 
     @Test

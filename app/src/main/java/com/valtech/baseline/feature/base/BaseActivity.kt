@@ -30,7 +30,7 @@ open class BaseActivity : AppCompatActivity() {
         showToast("Faced an error: $errorEvent.")
     }
 
-    fun showToast(text: String) {
+    private fun showToast(text: String) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 }

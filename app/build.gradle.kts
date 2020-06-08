@@ -90,13 +90,6 @@ android {
             )
         }
     }
-
-    // Ignore 'qaDebug' and 'devRelease' build variants that won't be used so tge build speed can be increased
-    setVariantFilter {
-        if (name == "devRelease" || name == "qaDebug" || name == "prodDebug") {
-            setIgnore(true)
-        }
-    }
 }
 
 dependencies {
@@ -110,10 +103,11 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
-    implementation("com.mikepenz:materialdrawer:6.1.2")
+    implementation("com.mikepenz:materialdrawer:8.0.0")
     implementation("com.google.android.material:material:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.github.blackbeared:fusion:1.0.3")
+    implementation ("androidx.preference:preference-ktx:1.1.1")
 
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
@@ -123,32 +117,32 @@ dependencies {
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
 
     implementation("jp.wasabeef:glide-transformations:4.1.0")
-    implementation("de.hdodenhof:circleimageview:2.2.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     implementation("com.jakewharton.timber:timber:4.7.1")
     implementation("org.koin:koin-android-viewmodel:$koinVersion")
     implementation("net.danlew:android.joda:2.10.3")
 
-    implementation("com.squareup.retrofit2:converter-gson:2.7.1")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.4.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.8.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.4.1")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
-    implementation("com.github.razir.progressbutton:progressbutton:1.0.3")
+    implementation("com.github.razir.progressbutton:progressbutton:2.0.1")
     // Kotlin
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     testImplementation("junit:junit:4.13")
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.4.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.4.1")
     testImplementation("org.koin:koin-test:$koinVersion")
     testImplementation("io.mockk:mockk:1.9.3")
-    testImplementation("org.amshove.kluent:kluent-android:1.50")
+    testImplementation("org.amshove.kluent:kluent-android:1.60")
     testImplementation("android.arch.core:core-testing:1.1.1")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
 
-    androidTestImplementation("org.hamcrest:hamcrest-library:1.3")
+    androidTestImplementation("org.hamcrest:hamcrest-library:2.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
     androidTestImplementation("androidx.test:rules:1.2.0")
     androidTestImplementation("androidx.test:runner:1.2.0")

@@ -3,10 +3,10 @@ package com.valtech.baseline.feature.repo
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.valtech.baseline.core.functional.Result
 import com.valtech.baseline.domain.error.Error
-import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
+import com.valtech.baseline.domain.usecase.GetRepoListUseCase
 import com.valtech.baseline.domain.usecase.UseCase
 import com.valtech.baseline.feature.repo.ReposViewModel.Event
-import com.valtech.baseline.testMember
+import com.valtech.baseline.testRepo
 import com.valtech.baseline.testutils.CoroutinesMainDispatcherRule
 import com.valtech.baseline.testutils.startKoin
 import com.valtech.baseline.testutils.testObserver
@@ -29,7 +29,7 @@ class ReposViewModelTest : AutoCloseKoinTest() {
     @get:Rule
     var coroutinesTestRule = CoroutinesMainDispatcherRule()
 
-    private val getTeamMembers = mockk<GetTeamMembersUseCase>()
+    private val getTeamMembers = mockk<GetRepoListUseCase>()
     private val reposViewModel: ReposViewModel by inject()
 
     @Test
@@ -39,12 +39,12 @@ class ReposViewModelTest : AutoCloseKoinTest() {
         coEvery {
             getTeamMembers.call(UseCase.None)
         } answers {
-            Result.success(listOf(testMember))
+            Result.success(listOf(testRepo))
         }
 
         reposViewModel.initialize()
 
-        testObserver.shouldContainEvents(Event.ShowTeam(listOf(testMember)))
+        testObserver.shouldContainEvents(Event.ShowRepos(listOf(testRepo)))
     }
 
     @Test

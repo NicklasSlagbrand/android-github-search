@@ -18,30 +18,15 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".feature.login.LoginActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:theme="@style/WhiteBackground"
-            android:windowSoftInputMode="stateVisible|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".feature.repo.ReposActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/WhiteBackground" />
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="" />
-
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+            android:theme="@style/WhiteBackground" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

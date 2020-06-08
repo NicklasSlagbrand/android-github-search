@@ -20,13 +20,6 @@ class LocalGithubRepoRepository {
         return Any()
     }
 
-    fun getAllMembers(): List<GithubRepo> {
-        Realm.getDefaultInstance().use { realm ->
-            val realmResults = realm.where<RealmMember>().findAll()
-            return handleQueryResults(realmResults, realm)
-        }
-    }
-
     private fun handleQueryResults(realmResults: RealmResults<RealmMember>, realm: Realm): List<GithubRepo> {
         val realmOrders = realm.copyFromRealm(realmResults)
         return realmOrders.map {

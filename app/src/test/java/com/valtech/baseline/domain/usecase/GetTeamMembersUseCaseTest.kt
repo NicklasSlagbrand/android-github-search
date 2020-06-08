@@ -16,7 +16,7 @@ import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 
 class GetTeamMembersUseCaseTest : AutoCloseKoinTest() {
-    private val useCase: GetTeamMembersUseCase by inject()
+    private val useCase: GetRepoListUseCase by inject()
     private val teamMembersRepository = mockk<GithubRepository>()
 
     @Test

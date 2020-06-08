@@ -12,7 +12,7 @@ import com.valtech.baseline.R
 import com.valtech.baseline.core.extension.loadImageWithFitCenterTransform
 import com.valtech.baseline.domain.model.GithubRepo
 import kotlin.properties.Delegates
-import kotlinx.android.synthetic.main.item_team_member.view.*
+import kotlinx.android.synthetic.main.item_repo.view.*
 
 class ReposAdapter(val context: Context) : RecyclerView.Adapter<ReposAdapter.TeamMembersViewHolder>() {
     var clickListener: (GithubRepo) -> Unit = {}
@@ -26,7 +26,7 @@ class ReposAdapter(val context: Context) : RecyclerView.Adapter<ReposAdapter.Tea
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamMembersViewHolder =
         TeamMembersViewHolder(
             LayoutInflater.from(context).inflate(
-                R.layout.item_team_member,
+                R.layout.item_repo,
                 parent,
                 false
             )
@@ -38,7 +38,7 @@ class ReposAdapter(val context: Context) : RecyclerView.Adapter<ReposAdapter.Tea
 
     override fun getItemCount() = results.size
 
-    class TeamMembersViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class TeamMembersViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val ivAvatar: ImageView = view.ivAvatar
         private val tvName: TextView = view.tvTitle
         private val tvDescription: TextView = view.tvDescription

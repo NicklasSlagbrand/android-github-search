@@ -1,7 +1,7 @@
-package com.valtech.baseline.data.di
+package com.valtech.baseline.core.di
 
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import com.valtech.baseline.data.datasource.local.LocalGithubRepoRepository
 import com.valtech.baseline.data.datasource.local.PreferenceStorage
 import com.valtech.baseline.data.datasource.remote.RemoteGithubReposRepository
@@ -11,10 +11,8 @@ import com.valtech.baseline.data.network.createTeamApi
 import com.valtech.baseline.data.time.AndroidTimeHandler
 import com.valtech.baseline.domain.TimeHandler
 import com.valtech.baseline.domain.repository.GithubRepository
-import com.valtech.baseline.domain.usecase.GetTeamMembersUseCase
-import com.valtech.baseline.domain.usecase.StoreTeamMembersUseCase
-import com.valtech.baseline.feature.login.LoginViewModel
-import com.valtech.baseline.feature.navigation.NavigationMenuViewModel
+import com.valtech.baseline.domain.usecase.GetRepoListUseCase
+import com.valtech.baseline.domain.usecase.StoreRepoListUseCase
 import com.valtech.baseline.feature.repo.ReposViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.viewmodel.dsl.viewModel
@@ -44,13 +42,11 @@ fun generalAppModule(baseUrl: String, networkLogging: Boolean) = module {
 
 fun useCaseAndViewModelModule() = module {
     factory {
-        GetTeamMembersUseCase(get())
+        GetRepoListUseCase(get())
     }
     factory {
-        StoreTeamMembersUseCase(get())
+        StoreRepoListUseCase(get())
     }
 
     viewModel { ReposViewModel(get(), get(), get()) }
-    viewModel { NavigationMenuViewModel() }
-    viewModel { LoginViewModel() }
 }

@@ -11,11 +11,6 @@ Useful links
 
 The development process follows [GitFlow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
-Tests
------------------
-
-Unit tests could be found [here](https://github.com/ValtechDK/AO_App_Hackathon_Android/tree/develop/app/src/test)
-
 Development
 -----------------
 

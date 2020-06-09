@@ -20,7 +20,6 @@ class RepoDetailsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initView()
     }
 
@@ -35,7 +34,9 @@ class RepoDetailsFragment : BaseFragment() {
         tvTitle.text = githubRepo.title
         tvDescription.text = githubRepo.description
 
-//        createSkillsChips(githubRepo.skills)
+        val exampleTags = listOf("Android", "Github", "Test")
+
+        createSkillsChips(exampleTags)
     }
 
     private fun createSkillsChips(skills: List<String>) {

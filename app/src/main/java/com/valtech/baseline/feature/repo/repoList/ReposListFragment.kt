@@ -2,6 +2,8 @@ package com.valtech.baseline.feature.repo.repoList
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.valtech.baseline.R
 import com.valtech.baseline.core.extension.invisible
 import com.valtech.baseline.core.extension.observeEvents
@@ -43,8 +45,14 @@ class ReposListFragment : BaseFragment() {
             results = githubRepos
             clickListener = { member ->
                 viewModel.reposClicked(member)
+                navigateToDetails()
             }
         }
         rvTeamMembers.visible()
+    }
+
+    private fun navigateToDetails() {
+        findNavController().navigate(
+            R.id.action_reposListFragment_to_repoDetailsFragment)
     }
 }

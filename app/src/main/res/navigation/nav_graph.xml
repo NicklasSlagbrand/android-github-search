@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentRepoHost"
-        android:name="com.valtech.baseline.feature.repo.RepoHostFragment"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.RepoHostFragment"
         android:label="ReposListFragment"
         tools:layout="@layout/fragment_repo_host">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/reposListFragment"
-        android:name="com.valtech.baseline.feature.repo.repoList.ReposListFragment"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.repoList.ReposListFragment"
         android:label="ReposListFragment"
         tools:layout="@layout/fragment_repo_list">
         <action
@@ -25,6 +25,6 @@
     </fragment>
     <fragment
         android:id="@+id/repoDetailsFragment"
-        android:name="com.valtech.baseline.feature.repo.repoDetails.RepoDetailsFragment"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.repoDetails.RepoDetailsFragment"
         android:label="RepoDetailsFragment" />
 </navigation>

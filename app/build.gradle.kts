@@ -25,7 +25,7 @@ android {
     compileSdkVersion(29)
 
     defaultConfig {
-        applicationId = "com.valtech.baseline"
+        applicationId = "com.nicklasslagbrand.baseline"
 
         minSdkVersion(21)
         targetSdkVersion(29)
@@ -95,7 +95,7 @@ android {
 dependencies {
     val kotlinVersion = rootProject.extra.get("kotlinVersion")
     val lifecycleVersion = "2.2.0"
-    val koinVersion = "2.1.5"
+    val koinVersion = "2.0.1"
     val coroutinesVersion = "1.3.3"
     val glideVersion = "4.11.0"
     val navVersion = "2.3.0-alpha04"

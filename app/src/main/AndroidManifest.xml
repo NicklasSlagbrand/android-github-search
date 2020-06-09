@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.valtech.baseline">
+    package="com.nicklasslagbrand.baseline">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.valtech.baseline.AndroidApp"
+        android:name="com.nicklasslagbrand.baseline.AndroidApp"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".feature.repo.ReposActivity"
+            android:name="com.nicklasslagbrand.baseline.feature.repo.ReposActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/WhiteBackground" >

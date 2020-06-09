@@ -62,11 +62,11 @@ class FileGenerator extends DefaultTask {
 tasks.register("genUI", FileGenerator) {
     group = 'Welcome'
     description = 'Produces a world greeting'
-    customUiPackagePath = "$projectDir/src/main/java/com/valtech/action/feature"
-    uiPlaceholderPath = "$projectDir/src/main/java/com/valtech/action/feature/placeholder"
-    domainPlaceholderPath = "$projectDir/src/main/java/com/valtech/action/feature/placeholder"
-    testViewModelPlaceholderPath = "$projectDir/src/main/java/com/valtech/action/feature/placeholder"
-    testUseCasePlaceholderPath = "$projectDir/src/main/java/com/valtech/action/feature/placeholder"
+    customUiPackagePath = "$projectDir/src/main/java/com/nicklasslagbrand/baseline/{ID}"
+    uiPlaceholderPath = "$projectDir/src/main/java/com/nicklasslagbrand/baseline/feature/{ID}"
+    domainPlaceholderPath = "$projectDir/src/main/java/com/nicklasslagbrand/baseline/feature/{ID}"
+    testViewModelPlaceholderPath = "$projectDir/src/main/java/com/nicklasslagbrand/baseline/feature/{ID}"
+    testUseCasePlaceholderPath = "$projectDir/src/main/java/com/nicklasslagbrand/baseline/feature/{ID}"
     featureName = "MyPlaceholderFeature"
 }
 

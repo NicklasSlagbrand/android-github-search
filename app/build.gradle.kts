@@ -127,8 +127,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
-
-    implementation("com.github.razir.progressbutton:progressbutton:2.0.1")
     // Kotlin
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")

@@ -1,6 +1,5 @@
 package com.nicklasslagbrand.baseline.testutils
 
-import com.nicklasslagbrand.baseline.Constants
 import com.nicklasslagbrand.baseline.core.di.generalAppModule
 import com.nicklasslagbrand.baseline.core.di.useCaseAndViewModelModule
 import com.nicklasslagbrand.baseline.data.network.NetworkConnectionChecker
@@ -10,7 +9,6 @@ import kotlinx.coroutines.test.TestCoroutineDispatcher
 import org.koin.core.KoinApplication
 import org.koin.core.logger.EmptyLogger
 import org.koin.core.module.Module
-import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 @Suppress("EXPERIMENTAL_API_USAGE")

@@ -1,3 +1,5 @@
 package com.nicklasslagbrand.baseline.domain.error
 
-class NoNetworkConnectionException : Exception()
+import java.io.IOException
+
+class NoNetworkConnectionException : IOException()

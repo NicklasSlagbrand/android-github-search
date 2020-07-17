@@ -1,13 +1,18 @@
 package com.nicklasslagbrand.baseline.feature.repo
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
 import com.nicklasslagbrand.baseline.domain.error.Error
+import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
 import com.nicklasslagbrand.baseline.domain.usecase.PagingParams
 import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel.Event
 import com.nicklasslagbrand.baseline.testRepo
+import com.nicklasslagbrand.baseline.testRepo2
 import com.nicklasslagbrand.baseline.testutils.CoroutinesMainDispatcherRule
 import com.nicklasslagbrand.baseline.testutils.TestObserver
 import com.nicklasslagbrand.baseline.testutils.startKoin
@@ -17,7 +22,9 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.amshove.kluent.mock
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.koin.dsl.module
@@ -31,11 +38,11 @@ class ReposViewModelTest : AutoCloseKoinTest() {
     @get:Rule
     var coroutinesTestRule = CoroutinesMainDispatcherRule()
 
-    private val reposViewModel: ReposViewModel by inject()
+    private val viewModel: ReposViewModel by inject()
 
     private lateinit var eventObserver: TestObserver<ConsumableEvent<Event>>
     private lateinit var failureObserver: TestObserver<ConsumableEvent<Error>>
-    private lateinit var repoobserver: TestObserver<ConsumableEvent<Error>>
+    private var reposObserver: Observer<PagedList<GithubRepo>> = mock()
     private val getRepos = mockk<GetRepoListUseCase>(relaxed = true)
 
     @Test
@@ -45,8 +52,20 @@ class ReposViewModelTest : AutoCloseKoinTest() {
         } answers {
             Result.success(listOf(testRepo))
         }
+        viewModel.getReposList().observeForever(reposObserver)
+        assert(viewModel.getReposList().value == listOf(testRepo))
+    }
 
-        reposViewModel.getReposList()
+    @Test
+    fun `check viewmodel handles item click correctly`() = runBlockingTest {
+        coEvery {
+            getRepos.call(PagingParams(1))
+        } answers {
+            Result.success(listOf(testRepo))
+        }
+        viewModel.itemClicked(testRepo)
+        eventObserver.shouldContainEvents(Event.ShowRepoDetails(testRepo))
+
     }
 
     @Test
@@ -58,8 +77,9 @@ class ReposViewModelTest : AutoCloseKoinTest() {
             Result.failure(Error.MissingNetworkConnection)
         }
 
-        reposViewModel.itemClicked(testRepo)
-        eventObserver.shouldContainEvents(Error.MissingNetworkConnection)
+        viewModel.getReposList().observeForever(reposObserver)
+        failureObserver.shouldContainEvents(Error.MissingNetworkConnection)
+        viewModel.reposLiveData.value == null
     }
 
     @Before
@@ -69,7 +89,7 @@ class ReposViewModelTest : AutoCloseKoinTest() {
         startKoin(overridesModule = module(override = true) {
             single { getRepos }
         })
-        eventObserver = reposViewModel.eventsLiveData.testObserver()
-        failureObserver = reposViewModel.failure.testObserver()
+        eventObserver = viewModel.eventsLiveData.testObserver()
+        failureObserver = viewModel.failure.testObserver()
     }
 }

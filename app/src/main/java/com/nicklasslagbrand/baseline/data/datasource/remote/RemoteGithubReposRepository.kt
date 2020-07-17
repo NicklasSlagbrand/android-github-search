@@ -6,7 +6,7 @@ import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 class RemoteGithubReposRepository(
     private val githubApi: GithubApi
 ) {
-    suspend fun getTeamMembers(): List<GithubRepo> {
-        return githubApi.getTeamMembers()
+    suspend fun getAndroidRepos(page: Long): List<GithubRepo> {
+        return githubApi.getAndroidRepos(page)
     }
 }

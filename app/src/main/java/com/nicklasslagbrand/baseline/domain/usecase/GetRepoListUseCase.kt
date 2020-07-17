@@ -1,12 +1,16 @@
 package com.nicklasslagbrand.baseline.domain.usecase
 
-import com.nicklasslagbrand.baseline.core.functional.Result
+import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 
-class GetRepoListUseCase(private val teamMembersRepository: GithubRepository) :
-    UseCase<List<GithubRepo>, UseCase.None>() {
-    override suspend fun call(params: None): Result<List<GithubRepo>, Error> =
-            teamMembersRepository.getAllTeamMembers()
+class GetRepoListUseCase(private val repository: GithubRepository) :
+    UseCase<List<GithubRepo>, PagingParams>() {
+    override suspend fun call(params: PagingParams): Result<List<GithubRepo>, Error> =
+        repository.getAndroidRepos(params.page)
 }
+
+data class PagingParams(
+    val page: Long
+)

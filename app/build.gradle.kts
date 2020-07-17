@@ -103,7 +103,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
-    implementation("com.mikepenz:materialdrawer:8.0.0")
     implementation("com.google.android.material:material:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.github.blackbeared:fusion:1.0.3")
@@ -133,6 +132,11 @@ dependencies {
     // Kotlin
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")
+
+    implementation ("android.arch.paging:runtime:1.0.1")
+    implementation ("android.arch.lifecycle:extensions:1.1.1")
+
+
 
     testImplementation("junit:junit:4.13")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.4.1")

@@ -26,10 +26,10 @@ class RepoListRepositoryTest : AutoCloseKoinTest() {
         runBlocking {
             mockWebServer.enqueue(MockResponse().setResponseCode(500))
             coEvery {
-                remotesRepository.getTeamMembers()
+                remotesRepository.getAndroidRepos(1)
             } returns emptyList()
 
-            remotesRepository.getTeamMembers()
+            remotesRepository.getAndroidRepos(1)
         }
     }
 
@@ -38,7 +38,7 @@ class RepoListRepositoryTest : AutoCloseKoinTest() {
         runBlocking {
             mockWebServer.enqueue(successFromFile("get-repo-list-success.json"))
 
-            val repo = remotesRepository.getTeamMembers()
+            val repo = remotesRepository.getAndroidRepos(1)
             repo.shouldContain(testRepo)
         }
     }

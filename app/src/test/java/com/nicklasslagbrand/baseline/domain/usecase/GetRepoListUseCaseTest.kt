@@ -1,6 +1,6 @@
 package com.nicklasslagbrand.baseline.domain.usecase
 
-import com.nicklasslagbrand.baseline.core.functional.Result
+import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 import com.nicklasslagbrand.baseline.testutils.failIfError
 import com.nicklasslagbrand.baseline.testutils.startKoin
@@ -17,16 +17,16 @@ import org.koin.test.inject
 
 class GetRepoListUseCaseTest : AutoCloseKoinTest() {
     private val useCase: GetRepoListUseCase by inject()
-    private val teamMembersRepository = mockk<GithubRepository>()
+    private val repository = mockk<GithubRepository>()
 
     @Test
     fun `test use case works as expected`() {
         runBlocking {
             coEvery {
-                teamMembersRepository.getAllTeamMembers()
+                repository.getAndroidRepos(1)
             } returns Result.success(emptyList())
 
-            val result = useCase.call(UseCase.None)
+            val result = useCase.call(PagingParams(1))
 
             result.fold({
                 it.shouldBeEmpty()
@@ -39,7 +39,7 @@ class GetRepoListUseCaseTest : AutoCloseKoinTest() {
         clearAllMocks()
 
         startKoin(overridesModule = module(override = true) {
-            single { teamMembersRepository }
+            single { repository }
         })
     }
 }

@@ -23,7 +23,6 @@ fun startKoin(
     val allModules = listOf(
         generalAppModule(baseUrl, networkLogging),
         module {
-            single(named(Constants.DEVICE_ID_TAG)) { "TEST_DEVICE_ID" }
             single<TimeHandler> { NoopTimeHandler() }
             single<NetworkConnectionChecker> { TestNetworkConnectionChecker(true) }
             single<CoroutineDispatcher> { TestCoroutineDispatcher() }

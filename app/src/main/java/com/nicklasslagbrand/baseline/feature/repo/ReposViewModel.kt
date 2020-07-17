@@ -1,57 +1,55 @@
 package com.nicklasslagbrand.baseline.feature.repo
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.paging.DataSource
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
+import com.nicklasslagbrand.baseline.domain.dataSource.ReposDataSource
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
-import com.nicklasslagbrand.baseline.domain.usecase.StoreRepoListUseCase
-import com.nicklasslagbrand.baseline.domain.usecase.UseCase
 import com.nicklasslagbrand.baseline.feature.base.BaseViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 
 class ReposViewModel (
     private val getRepoListUseCase: GetRepoListUseCase,
-    private val storeRepoListUseCase: StoreRepoListUseCase,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : BaseViewModel() {
     val eventsLiveData = MutableLiveData<ConsumableEvent<Event>>()
+
     lateinit var activeGithubRepo: GithubRepo
+    private var reposLiveData  : LiveData<PagedList<GithubRepo>>
 
-    fun initialize() {
-        viewModelScope.launch {
-            val result = withContext(backgroundDispatcher) {
-                getRepoListUseCase.call(UseCase.None)
+    init {
+        val config = PagedList.Config.Builder()
+            .setPageSize(10)
+            .setEnablePlaceholders(true)
+            .build()
+        reposLiveData  = initializedPagedListBuilder(config).build()
+    }
+
+    private fun initializedPagedListBuilder(config: PagedList.Config):
+            LivePagedListBuilder<Long, GithubRepo> {
+
+        val dataSourceFactory = object : DataSource.Factory<Long, GithubRepo>() {
+            override fun create(): DataSource<Long, GithubRepo> {
+                return ReposDataSource(
+                    useCase = getRepoListUseCase,
+                    coroutineContext = backgroundDispatcher)
             }
-            result.fold({
-                eventsLiveData.value = ConsumableEvent(Event.ShowRepos(it))
-            }, ::handleFailure)
         }
+        return LivePagedListBuilder<Long, GithubRepo>(dataSourceFactory, config)
     }
 
-    fun reposClicked(repo: GithubRepo) {
-        activeGithubRepo = repo
-        showRepoDetails(repo)
-    }
+    fun getReposList():LiveData<PagedList<GithubRepo>> = reposLiveData
 
-    private fun showRepoDetails(repo: GithubRepo) {
-        eventsLiveData.value = ConsumableEvent(Event.ShowRepoDetails(repo))
+    fun itemClicked(item: GithubRepo){
+        activeGithubRepo = item
+        eventsLiveData.value = ConsumableEvent(Event.ShowRepoDetails(item))
     }
-
-    private fun storeMembers(list: List<GithubRepo>) {
-        viewModelScope.launch {
-            val result = withContext(backgroundDispatcher) {
-                storeRepoListUseCase.call(list)
-            }
-            result.fold({
-            }, ::handleFailure)
-        }
-    }
-
     sealed class Event {
-        data class ShowRepos(val githubRepos: List<GithubRepo>) : Event()
-        data class ShowRepoDetails(val repo: GithubRepo): Event()
+        data class ShowRepoDetails(val repo: GithubRepo) : Event()
     }
 }

@@ -1,58 +1,56 @@
 package com.nicklasslagbrand.baseline.feature.repo.repoList
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterTransform
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
-import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.item_repo.view.*
 
-class ReposAdapter(val context: Context) : RecyclerView.Adapter<ReposAdapter.TeamMembersViewHolder>() {
+class ReposAdapter : PagedListAdapter<GithubRepo, ReposAdapter.RepoListViewHolder>(DiffUtilCallBack()) {
     var clickListener: (GithubRepo) -> Unit = {}
 
-    var results: List<GithubRepo> by Delegates.observable(
-        emptyList()
-    ) { _, _, _ ->
-        notifyDataSetChanged()
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamMembersViewHolder =
-        TeamMembersViewHolder(
-            LayoutInflater.from(context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoListViewHolder =
+        RepoListViewHolder(
+            LayoutInflater.from(parent.context).inflate(
                 R.layout.item_repo,
                 parent,
                 false
             )
         )
 
-    override fun onBindViewHolder(holder: TeamMembersViewHolder, position: Int) {
-        holder.bind(results[position], clickListener)
+    override fun onBindViewHolder(holder: RepoListViewHolder, position: Int) {
+        getItem(position)?.let { holder.bind(it, clickListener) }
     }
 
-    override fun getItemCount() = results.size
+    class RepoListViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(repo: GithubRepo, clickListener: (GithubRepo) -> Unit) {
+            view.tvTitle.text = repo.title
+            view.tvDescription.text = repo.description
 
-    class TeamMembersViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        private val ivAvatar: ImageView = view.ivAvatar
-        private val tvName: TextView = view.tvTitle
-        private val tvDescription: TextView = view.tvDescription
-
-        fun bind(teamMember: GithubRepo, clickListener: (GithubRepo) -> Unit) {
-            tvName.text = teamMember.title
-            tvDescription.text = teamMember.description
-
-            ivAvatar.loadImageWithFitCenterTransform(
-                teamMember.owner.avatarUrl?: "",
+            view.ivAvatar.loadImageWithFitCenterTransform(
+                repo.owner.avatarUrl?: "",
                 RequestOptions.circleCropTransform()
             )
+            view.setOnClickListener {
+                clickListener(repo)
+            }
 
-            view.setOnClickListener { clickListener(teamMember) }
         }
     }
+}
+class DiffUtilCallBack : DiffUtil.ItemCallback<GithubRepo>() {
+    override fun areItemsTheSame(oldItem: GithubRepo, newItem: GithubRepo): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: GithubRepo, newItem: GithubRepo): Boolean {
+        return oldItem.id == newItem.id
+    }
+
 }

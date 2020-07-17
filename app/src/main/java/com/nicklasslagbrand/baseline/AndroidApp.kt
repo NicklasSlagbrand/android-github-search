@@ -65,7 +65,7 @@ class AndroidApp : Application() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel =
                 NotificationChannel(
-                    Constants.APP_CARDS_NOTIFICATION_CHANNEL,
+                    Constants.DEFAULT_NOTIFICATION_CHANNEL,
                     getString(R.string.app_name),
                     NotificationManager.IMPORTANCE_HIGH
                 )

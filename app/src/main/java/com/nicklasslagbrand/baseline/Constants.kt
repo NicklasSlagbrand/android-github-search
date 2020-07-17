@@ -2,7 +2,6 @@ package com.nicklasslagbrand.baseline
 
 class Constants {
     companion object {
-        const val DEVICE_ID_TAG = "device_id"
-        const val APP_CARDS_NOTIFICATION_CHANNEL = "cards"
+        const val DEFAULT_NOTIFICATION_CHANNEL = "default_channel"
     }
 }

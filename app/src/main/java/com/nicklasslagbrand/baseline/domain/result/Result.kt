@@ -1,7 +1,7 @@
-package com.nicklasslagbrand.baseline.core.functional
+package com.nicklasslagbrand.baseline.domain.result
 
-import com.nicklasslagbrand.baseline.core.functional.Result.Failure
-import com.nicklasslagbrand.baseline.core.functional.Result.Success
+import com.nicklasslagbrand.baseline.domain.result.Result.Failure
+import com.nicklasslagbrand.baseline.domain.result.Result.Success
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.error.NoNetworkConnectionException
 import java.net.UnknownHostException
@@ -57,11 +57,17 @@ sealed class Result<out SuccessType, out FailureType> {
 @SuppressWarnings("TooGenericExceptionCaught")
 inline fun <T> wrapResult(block: () -> T): Result<T, Error> {
     return try {
-        Result.success(block())
+        Result.success(
+            block()
+        )
     } catch (exception: NoNetworkConnectionException) {
-        Result.failure(Error.MissingNetworkConnection)
+        Result.failure(
+            Error.MissingNetworkConnection
+        )
     } catch (exception: UnknownHostException) {
-        Result.failure(Error.MissingNetworkConnection)
+        Result.failure(
+            Error.MissingNetworkConnection
+        )
     } catch (exception: Exception) {
         Result.failure(
             Error.GeneralError(

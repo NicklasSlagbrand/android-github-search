@@ -8,7 +8,7 @@ import org.joda.time.DateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun createTeamApi(
+fun createGithubApi(
     debug: Boolean = false,
     baseUrl: String,
     connectionChecker: NetworkConnectionChecker

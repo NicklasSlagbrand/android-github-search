@@ -3,17 +3,18 @@ package com.nicklasslagbrand.baseline.feature.repo.repoList
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nicklasslagbrand.baseline.R
-import com.nicklasslagbrand.baseline.core.extension.invisible
+import com.nicklasslagbrand.baseline.core.extension.observe
 import com.nicklasslagbrand.baseline.core.extension.observeEvents
-import com.nicklasslagbrand.baseline.core.extension.visible
-import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.feature.base.BaseFragment
 import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel
 import kotlinx.android.synthetic.main.fragment_repo_list.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class ReposListFragment : BaseFragment() {
+    private val reposAdapter: ReposAdapter = ReposAdapter()
+
     private val viewModel: ReposViewModel by sharedViewModel()
     override fun provideLayoutId(): Int? = R.layout.fragment_repo_list
 
@@ -21,33 +22,28 @@ class ReposListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         subscribeToLiveData()
-        viewModel.initialize()
+        initializeList()
+    }
+    private fun initializeList() {
+        rvRepos.layoutManager = LinearLayoutManager(requireContext())
+        rvRepos.adapter = reposAdapter.apply {
+            clickListener = {
+                viewModel.itemClicked(it)
+            }
+        }
     }
 
     private fun subscribeToLiveData() {
+        observe(viewModel.getReposList()) {
+            reposAdapter.submitList(it)
+        }
+
         observeEvents(viewModel.eventsLiveData) {
             when (it) {
-                is ReposViewModel.Event.ShowRepos -> showMembersList(it.githubRepos)
-                is ReposViewModel.Event.ShowRepoDetails -> navigateToRepoDetails()
+                is ReposViewModel.Event.ShowRepoDetails -> navigateToDetails()
             }
         }
         observeEvents(viewModel.failure, ::handleFailure)
-    }
-
-    private fun navigateToRepoDetails(){
-
-    }
-
-    private fun showMembersList(githubRepos: List<GithubRepo>) {
-        pbRepo.invisible()
-        rvTeamMembers.adapter = ReposAdapter(requireContext()).apply {
-            results = githubRepos
-            clickListener = { repo ->
-                viewModel.reposClicked(repo)
-                navigateToDetails()
-            }
-        }
-        rvTeamMembers.visible()
     }
 
     private fun navigateToDetails() {

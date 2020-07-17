@@ -11,22 +11,6 @@ import androidx.annotation.LayoutRes
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
 
-fun View.enable() {
-    this.isEnabled = true
-}
-
-fun View.disable() {
-    this.isEnabled = false
-}
-
-fun View.select() {
-    this.isSelected = true
-}
-
-fun View.deselect() {
-    this.isSelected = false
-}
-
 fun View.isVisible() = this.visibility == View.VISIBLE
 
 fun View.visible() {

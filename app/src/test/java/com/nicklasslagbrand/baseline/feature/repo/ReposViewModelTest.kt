@@ -1,11 +1,11 @@
 package com.nicklasslagbrand.baseline.feature.repo
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nicklasslagbrand.baseline.core.functional.Result
+import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
-import com.nicklasslagbrand.baseline.domain.usecase.UseCase
+import com.nicklasslagbrand.baseline.domain.usecase.PagingParams
 import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel.Event
 import com.nicklasslagbrand.baseline.testRepo
 import com.nicklasslagbrand.baseline.testutils.CoroutinesMainDispatcherRule
@@ -35,30 +35,30 @@ class ReposViewModelTest : AutoCloseKoinTest() {
 
     private lateinit var eventObserver: TestObserver<ConsumableEvent<Event>>
     private lateinit var failureObserver: TestObserver<ConsumableEvent<Error>>
+    private lateinit var repoobserver: TestObserver<ConsumableEvent<Error>>
     private val getRepos = mockk<GetRepoListUseCase>(relaxed = true)
 
     @Test
     fun `check viewmodel handles happy case correctly`() = runBlockingTest {
         coEvery {
-            getRepos.call(UseCase.None)
+            getRepos.call(PagingParams(1))
         } answers {
             Result.success(listOf(testRepo))
         }
 
-        reposViewModel.initialize()
-        eventObserver.shouldContainEvents(Event.ShowRepos(listOf(testRepo)))
+        reposViewModel.getReposList()
     }
 
     @Test
     fun `check viewmodel handles failure case correctly`() = runBlockingTest {
 
         coEvery {
-            getRepos.call(UseCase.None)
+            getRepos.call(PagingParams(1))
         } answers {
             Result.failure(Error.MissingNetworkConnection)
         }
 
-        reposViewModel.initialize()
+        reposViewModel.itemClicked(testRepo)
         eventObserver.shouldContainEvents(Error.MissingNetworkConnection)
     }
 

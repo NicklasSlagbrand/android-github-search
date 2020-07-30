@@ -1,7 +1,7 @@
 package com.nicklasslagbrand.baseline.domain.usecase
 
-import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
+import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.testutils.failIfError
 import com.nicklasslagbrand.baseline.testutils.startKoin
 import io.mockk.clearAllMocks

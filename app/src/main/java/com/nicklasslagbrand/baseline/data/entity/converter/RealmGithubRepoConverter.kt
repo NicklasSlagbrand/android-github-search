@@ -1,8 +1,8 @@
 package com.nicklasslagbrand.baseline.data.entity.converter
 
-import com.nicklasslagbrand.baseline.domain.model.GithubRepo
-import com.nicklasslagbrand.baseline.data.entity.RealmRepo
 import com.nicklasslagbrand.baseline.data.entity.RealmOwner
+import com.nicklasslagbrand.baseline.data.entity.RealmRepo
+import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.model.Owner
 
 object RealmGithubRepoConverter {

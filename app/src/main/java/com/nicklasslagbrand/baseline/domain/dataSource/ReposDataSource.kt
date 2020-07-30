@@ -3,15 +3,15 @@ package com.nicklasslagbrand.baseline.domain.dataSource
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
+import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
 import com.nicklasslagbrand.baseline.domain.usecase.PagingParams
-import com.nicklasslagbrand.baseline.domain.error.Error
-import kotlinx.coroutines.Job
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.CoroutineContext
 
 class ReposDataSource(
     val errorLiveData: MutableLiveData<ConsumableEvent<Error>>,

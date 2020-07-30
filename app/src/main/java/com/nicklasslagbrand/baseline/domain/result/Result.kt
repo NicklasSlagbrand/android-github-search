@@ -1,9 +1,9 @@
 package com.nicklasslagbrand.baseline.domain.result
 
-import com.nicklasslagbrand.baseline.domain.result.Result.Failure
-import com.nicklasslagbrand.baseline.domain.result.Result.Success
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.error.NoNetworkConnectionException
+import com.nicklasslagbrand.baseline.domain.result.Result.Failure
+import com.nicklasslagbrand.baseline.domain.result.Result.Success
 import java.net.UnknownHostException
 
 /**

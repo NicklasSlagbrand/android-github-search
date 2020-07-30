@@ -18,7 +18,7 @@ class ReposViewModel(
 ) : BaseViewModel() {
     val eventsLiveData = MutableLiveData<ConsumableEvent<Event>>()
     lateinit var activeGithubRepo: GithubRepo
-    var reposLiveData : LiveData<PagedList<GithubRepo>>
+    var reposLiveData: LiveData<PagedList<GithubRepo>>
 
     init {
         val config = PagedList.Config.Builder()

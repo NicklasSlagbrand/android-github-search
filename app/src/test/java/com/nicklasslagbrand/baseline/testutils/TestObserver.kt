@@ -3,6 +3,7 @@ package com.nicklasslagbrand.baseline.testutils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
+import com.nicklasslagbrand.baseline.domain.error.Error
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldContainSame
 

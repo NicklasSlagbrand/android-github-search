@@ -2,19 +2,23 @@ package com.nicklasslagbrand.baseline.domain.dataSource
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
+import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
 import com.nicklasslagbrand.baseline.domain.usecase.PagingParams
 import com.nicklasslagbrand.baseline.domain.error.Error
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 
 class ReposDataSource(
-    val errorLiveData: MutableLiveData<Error>,
+    val errorLiveData: MutableLiveData<ConsumableEvent<Error>>,
     coroutineContext: CoroutineContext,
     val useCase: GetRepoListUseCase
 ) : PageKeyedDataSource<Long, GithubRepo>() {
-        private val job = Job()
+    private val job = Job()
     private val scope = CoroutineScope(coroutineContext + job)
 
     override fun loadInitial(
@@ -26,9 +30,9 @@ class ReposDataSource(
                 useCase.call(PagingParams(DEFAULT_PAGE))
             }
             result.fold({
-                callback.onResult(it, 1, DEFAULT_PAGE+1)
+                callback.onResult(it, 1, DEFAULT_PAGE + 1)
             }, {
-                errorLiveData.postValue(it)
+                errorLiveData.postValue(ConsumableEvent(it))
             })
         }
     }
@@ -39,9 +43,9 @@ class ReposDataSource(
                 useCase.call(PagingParams(params.key))
             }
             result.fold({
-                callback.onResult(it, params.key+1)
+                callback.onResult(it, params.key + 1)
             }, {
-                errorLiveData.postValue(it)
+                errorLiveData.postValue(ConsumableEvent(it))
             })
         }
     }
@@ -52,12 +56,8 @@ class ReposDataSource(
         super.invalidate()
         job.cancel()
     }
-    sealed class LoadResult<out K, out V> {
-        data class Success<K, V>(val data: MutableList<V>, val adjacentPageKey: K?) : LoadResult<K, V>()
-        object None : LoadResult<Nothing, Nothing>()
-    }
 
-    companion object{
-        final const val DEFAULT_PAGE: Long = 1
+    companion object {
+        const val DEFAULT_PAGE: Long = 1
     }
 }

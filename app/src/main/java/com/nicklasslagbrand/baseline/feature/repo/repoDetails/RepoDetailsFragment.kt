@@ -16,7 +16,7 @@ class RepoDetailsFragment : BaseFragment() {
     private val viewModel: ReposViewModel by sharedViewModel()
     private lateinit var githubRepo: GithubRepo
 
-    override fun provideLayoutId()= R.layout.fragment_repo_details
+    override fun provideLayoutId() = R.layout.fragment_repo_details
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,7 +27,7 @@ class RepoDetailsFragment : BaseFragment() {
         githubRepo = viewModel.activeGithubRepo
 
         ivAvatar.loadImageWithFitCenterTransform(
-            githubRepo.owner.avatarUrl?: "",
+            githubRepo.owner.avatarUrl ?: "",
             RequestOptions.circleCropTransform()
         )
 

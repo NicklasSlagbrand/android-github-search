@@ -34,13 +34,12 @@ class ReposAdapter : PagedListAdapter<GithubRepo, ReposAdapter.RepoListViewHolde
             view.tvDescription.text = repo.description
 
             view.ivAvatar.loadImageWithFitCenterTransform(
-                repo.owner.avatarUrl?: "",
+                repo.owner.avatarUrl ?: "",
                 RequestOptions.circleCropTransform()
             )
             view.setOnClickListener {
                 clickListener(repo)
             }
-
         }
     }
 }
@@ -52,5 +51,4 @@ class DiffUtilCallBack : DiffUtil.ItemCallback<GithubRepo>() {
     override fun areContentsTheSame(oldItem: GithubRepo, newItem: GithubRepo): Boolean {
         return oldItem.id == newItem.id
     }
-
 }

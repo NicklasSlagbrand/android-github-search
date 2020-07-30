@@ -38,10 +38,6 @@ class ReposListFragment : BaseFragment() {
             reposAdapter.submitList(it)
         }
 
-        observe(viewModel.getError()) {
-            handleFailure(it)
-        }
-
         observeEvents(viewModel.eventsLiveData) {
             when (it) {
                 is ReposViewModel.Event.ShowRepoDetails -> navigateToDetails()

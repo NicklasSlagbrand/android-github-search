@@ -7,28 +7,25 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
 import com.nicklasslagbrand.baseline.domain.dataSource.ReposDataSource
-import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
 import com.nicklasslagbrand.baseline.feature.base.BaseViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 
-class ReposViewModel (
+class ReposViewModel(
     private val getRepoListUseCase: GetRepoListUseCase,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : BaseViewModel() {
     val eventsLiveData = MutableLiveData<ConsumableEvent<Event>>()
-    val errorLiveData = MutableLiveData<Error>()
-
     lateinit var activeGithubRepo: GithubRepo
-    private var reposLiveData  : LiveData<PagedList<GithubRepo>>
+    var reposLiveData : LiveData<PagedList<GithubRepo>>
 
     init {
         val config = PagedList.Config.Builder()
             .setPageSize(10)
             .setEnablePlaceholders(true)
             .build()
-        reposLiveData  = initializedPagedListBuilder(config).build()
+        reposLiveData = initializedPagedListBuilder(config).build()
     }
 
     private fun initializedPagedListBuilder(config: PagedList.Config):
@@ -37,7 +34,7 @@ class ReposViewModel (
         val dataSourceFactory = object : DataSource.Factory<Long, GithubRepo>() {
             override fun create(): DataSource<Long, GithubRepo> {
                 return ReposDataSource(
-                    errorLiveData = errorLiveData,
+                    errorLiveData = failure,
                     useCase = getRepoListUseCase,
                     coroutineContext = backgroundDispatcher
                 )
@@ -46,10 +43,9 @@ class ReposViewModel (
         return LivePagedListBuilder<Long, GithubRepo>(dataSourceFactory, config)
     }
 
-    fun getReposList():LiveData<PagedList<GithubRepo>> = reposLiveData
-    fun getError():LiveData<Error> = errorLiveData
+    fun getReposList(): LiveData<PagedList<GithubRepo>> = reposLiveData
 
-    fun itemClicked(item: GithubRepo){
+    fun itemClicked(item: GithubRepo) {
         activeGithubRepo = item
         eventsLiveData.value = ConsumableEvent(Event.ShowRepoDetails(item))
     }

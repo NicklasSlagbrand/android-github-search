@@ -14,5 +14,3 @@ open class RealmRepo(
 open class RealmOwner(
     var avatarUrl: String = ""
 ) : RealmObject()
-
-

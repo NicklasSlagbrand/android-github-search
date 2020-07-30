@@ -8,7 +8,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.nicklasslagbrand.baseline.R
 
-
 fun ImageView.loadImageWithFitCenterTransform(
     url: String,
     vararg transformations: RequestOptions

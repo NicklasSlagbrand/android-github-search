@@ -1,7 +1,6 @@
 package com.nicklasslagbrand.baseline.feature.repo
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.nicklasslagbrand.baseline.domain.result.Result
@@ -12,11 +11,10 @@ import com.nicklasslagbrand.baseline.domain.usecase.GetRepoListUseCase
 import com.nicklasslagbrand.baseline.domain.usecase.PagingParams
 import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel.Event
 import com.nicklasslagbrand.baseline.testRepo
-import com.nicklasslagbrand.baseline.testRepo2
 import com.nicklasslagbrand.baseline.testutils.CoroutinesMainDispatcherRule
 import com.nicklasslagbrand.baseline.testutils.TestObserver
-import com.nicklasslagbrand.baseline.testutils.startKoin
 import com.nicklasslagbrand.baseline.testutils.testObserver
+import com.nicklasslagbrand.baseline.testutils.startKoin
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -24,7 +22,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.amshove.kluent.mock
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.koin.dsl.module
@@ -65,7 +62,6 @@ class ReposViewModelTest : AutoCloseKoinTest() {
         }
         viewModel.itemClicked(testRepo)
         eventObserver.shouldContainEvents(Event.ShowRepoDetails(testRepo))
-
     }
 
     @Test
@@ -79,7 +75,6 @@ class ReposViewModelTest : AutoCloseKoinTest() {
 
         viewModel.getReposList().observeForever(reposObserver)
         failureObserver.shouldContainEvents(Error.MissingNetworkConnection)
-        viewModel.reposLiveData.value == null
     }
 
     @Before

@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.awesome.shorty.AwesomeToast
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.domain.error.Error
-import timber.log.Timber
 
 @SuppressLint("Registered")
 open class BaseFragment : Fragment() {

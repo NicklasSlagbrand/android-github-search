@@ -14,7 +14,8 @@ object RealmGithubRepoConverter {
 
     fun fromRepo(githubRepo: GithubRepo): RealmRepo {
         with(githubRepo) {
-            return RealmRepo(id, title, description?:  "", RealmOwner(owner.avatarUrl?:""))
+            return RealmRepo(id, title, description ?: "",
+                RealmOwner(owner.avatarUrl ?: ""))
         }
     }
 }

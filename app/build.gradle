@@ -3,6 +3,8 @@ def appVersionName = "1.0.0"
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 apply plugin: 'kotlin-kapt'
 
 
@@ -10,6 +12,16 @@ android {
     buildFeatures {
         viewBinding true
     }
+    dataBinding {
+        enabled true
+    }
+    viewBinding {
+        enabled true
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     compileSdkVersion 30
 
     compileOptions {
@@ -64,8 +76,6 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("com.google.android.material:material:1.2.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    implementation("com.github.blackbeared:fusion:1.0.3")
-    implementation ("androidx.preference:preference-ktx:1.1.1")
 
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
@@ -93,7 +103,7 @@ dependencies {
     implementation ("android.arch.paging:runtime:1.0.1")
     implementation ("android.arch.lifecycle:extensions:1.1.1")
 
-
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 
     testImplementation("junit:junit:4.13.1")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")

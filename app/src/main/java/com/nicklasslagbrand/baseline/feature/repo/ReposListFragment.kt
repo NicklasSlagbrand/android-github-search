@@ -1,20 +1,33 @@
 package com.nicklasslagbrand.baseline.feature.repo
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.observe
 import com.nicklasslagbrand.baseline.core.extension.observeEvents
-import kotlinx.android.synthetic.main.fragment_repo_list.*
+import com.nicklasslagbrand.baseline.databinding.FragmentRepoListBinding
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class ReposListFragment : Fragment(R.layout.fragment_repo_list) {
-    private val reposAdapter: ReposAdapter = ReposAdapter()
+class ReposListFragment : Fragment() {
+    private var _binding: FragmentRepoListBinding? = null
+    private val binding get() = _binding!!
 
+    private val reposAdapter: ReposAdapter = ReposAdapter()
     private val viewModel: ReposViewModel by sharedViewModel()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentRepoListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,9 +35,13 @@ class ReposListFragment : Fragment(R.layout.fragment_repo_list) {
         subscribeToLiveData()
         initializeList()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
     private fun initializeList() {
-        rvRepos.layoutManager = LinearLayoutManager(requireContext())
-        rvRepos.adapter = reposAdapter.apply {
+        binding.rvRepos.adapter = reposAdapter.apply {
             clickListener = {
                 viewModel.itemClicked(it)
             }
@@ -36,10 +53,8 @@ class ReposListFragment : Fragment(R.layout.fragment_repo_list) {
             reposAdapter.submitList(it)
         }
 
-        observeEvents(viewModel.eventsLiveData) {
-            when (it) {
-                is ReposViewModel.Event.ShowRepoDetails -> navigateToDetails()
-            }
+        observe(viewModel.activeGithubRepo) {
+            navigateToDetails()
         }
     }
 

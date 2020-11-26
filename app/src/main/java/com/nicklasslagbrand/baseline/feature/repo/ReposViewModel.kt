@@ -2,6 +2,7 @@ package com.nicklasslagbrand.baseline.feature.repo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
@@ -16,9 +17,9 @@ class ReposViewModel(
     private val repository: GithubRepository,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : ViewModel() {
-    val eventsLiveData = MutableLiveData<ConsumableEvent<Event>>()
-    lateinit var activeGithubRepo: GithubRepo
-    private var reposLiveData: LiveData<PagedList<GithubRepo>>
+    val activeGithubRepo = MutableLiveData<GithubRepo>()
+
+    val reposLiveData: LiveData<PagedList<GithubRepo>>
 
     init {
         val config = PagedList.Config.Builder()
@@ -45,8 +46,7 @@ class ReposViewModel(
     fun getReposList(): LiveData<PagedList<GithubRepo>> = reposLiveData
 
     fun itemClicked(item: GithubRepo) {
-        activeGithubRepo = item
-        eventsLiveData.value = ConsumableEvent(Event.ShowRepoDetails(item))
+        activeGithubRepo.value = item
     }
     sealed class Event {
         data class ShowRepoDetails(val repo: GithubRepo) : Event()

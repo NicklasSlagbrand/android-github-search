@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterTransform
+import com.nicklasslagbrand.baseline.databinding.ItemRepoBinding
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
-import kotlinx.android.synthetic.main.item_repo.view.*
 
 class ReposAdapter : PagedListAdapter<GithubRepo, ReposAdapter.RepoListViewHolder>(DiffUtilCallBack()) {
     var clickListener: (GithubRepo) -> Unit = {}
@@ -28,17 +28,21 @@ class ReposAdapter : PagedListAdapter<GithubRepo, ReposAdapter.RepoListViewHolde
         getItem(position)?.let { holder.bind(it, clickListener) }
     }
 
-    class RepoListViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(repo: GithubRepo, clickListener: (GithubRepo) -> Unit) {
-            view.tvTitle.text = repo.title
-            view.tvDescription.text = repo.description
+    class RepoListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val binding = ItemRepoBinding.bind(view)
 
-            view.ivAvatar.loadImageWithFitCenterTransform(
-                repo.owner.avatarUrl ?: "",
-                RequestOptions.circleCropTransform()
-            )
-            view.setOnClickListener {
-                clickListener(repo)
+        fun bind(repo: GithubRepo, clickListener: (GithubRepo) -> Unit) {
+            with(binding) {
+                tvTitle.text = repo.title
+                tvDescription.text = repo.description
+
+                ivAvatar.loadImageWithFitCenterTransform(
+                    repo.owner.avatarUrl ?: "",
+                    RequestOptions.circleCropTransform()
+                )
+                root.setOnClickListener {
+                    clickListener(repo)
+                }
             }
         }
     }

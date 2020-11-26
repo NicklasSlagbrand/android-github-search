@@ -20,8 +20,7 @@
         <activity
             android:name="com.nicklasslagbrand.baseline.feature.repo.ReposActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:theme="@style/WhiteBackground" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

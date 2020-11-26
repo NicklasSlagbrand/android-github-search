@@ -1,6 +1,5 @@
 package com.nicklasslagbrand.baseline.data.network
 
-import com.nicklasslagbrand.baseline.core.extension.empty
 import com.nicklasslagbrand.baseline.domain.error.NoNetworkConnectionException
 import com.nicklasslagbrand.baseline.testutils.TestNetworkConnectionChecker
 import io.mockk.every
@@ -27,7 +26,7 @@ class NetworkConnectionInterceptorTest {
 
         throwingFunction
             .shouldThrow(NoNetworkConnectionException::class)
-            .withMessage(String.empty())
+            .withMessage("")
     }
 
     @Test

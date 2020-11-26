@@ -1,7 +1,7 @@
 package com.nicklasslagbrand.baseline.testutils
 
 import com.nicklasslagbrand.baseline.core.di.generalAppModule
-import com.nicklasslagbrand.baseline.core.di.useCaseAndViewModelModule
+import com.nicklasslagbrand.baseline.core.di.viewModelModule
 import com.nicklasslagbrand.baseline.data.network.NetworkConnectionChecker
 import com.nicklasslagbrand.baseline.domain.TimeHandler
 import kotlinx.coroutines.CoroutineDispatcher
@@ -25,7 +25,7 @@ fun startKoin(
             single<NetworkConnectionChecker> { TestNetworkConnectionChecker(true) }
             single<CoroutineDispatcher> { TestCoroutineDispatcher() }
         },
-        useCaseAndViewModelModule(),
+        viewModelModule,
         overridesModule
     )
 

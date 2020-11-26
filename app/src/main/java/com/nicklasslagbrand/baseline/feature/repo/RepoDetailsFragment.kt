@@ -1,22 +1,20 @@
-package com.nicklasslagbrand.baseline.feature.repo.repoDetails
+package com.nicklasslagbrand.baseline.feature.repo
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.chip.Chip
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterTransform
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
-import com.nicklasslagbrand.baseline.feature.base.BaseFragment
-import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel
 import kotlinx.android.synthetic.main.fragment_repo_details.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class RepoDetailsFragment : BaseFragment() {
+class RepoDetailsFragment : Fragment(R.layout.fragment_repo_details) {
     private val viewModel: ReposViewModel by sharedViewModel()
     private lateinit var githubRepo: GithubRepo
 
-    override fun provideLayoutId() = R.layout.fragment_repo_details
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

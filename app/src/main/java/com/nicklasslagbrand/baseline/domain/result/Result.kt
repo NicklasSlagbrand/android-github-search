@@ -32,24 +32,16 @@ sealed class Result<out SuccessType, out FailureType> {
         }
     }
 
-    fun success(onSuccess: (SuccessType) -> Unit) {
-        fold(onSuccess, {})
-    }
-
-    fun failure(onFailure: (FailureType) -> Unit) {
-        fold({}, onFailure)
-    }
-
     fun <L> newFailure(a: L) = Failure(a)
     fun <R> newSuccess(b: R) = Success(b)
 
     companion object {
         fun <T> success(from: T): Result<T, Error> {
-            return Result.Success(from)
+            return Success(from)
         }
 
         fun <T, Error> failure(from: Error): Result<T, Error> {
-            return Result.Failure(from)
+            return Failure(from)
         }
     }
 }

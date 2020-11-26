@@ -4,10 +4,6 @@
     <color name="colorPrimaryDark">#152b51</color>
     <color name="colorAccent">#eff3fa</color>
 
-    <color name="colorPlaceholderBg">#F2F2F2F2</color>
-
-    <!-- Override MaterialDrawer default colors -->
-
     <!-- Project colors -->
     <color name="darkSlateBlue">#1b3666</color>
 </resources>

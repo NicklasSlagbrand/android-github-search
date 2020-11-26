@@ -6,9 +6,7 @@ import android.app.NotificationManager
 import android.os.Build
 import com.nicklasslagbrand.baseline.core.di.androidPlatformModule
 import com.nicklasslagbrand.baseline.core.di.generalAppModule
-import com.nicklasslagbrand.baseline.core.di.useCaseAndViewModelModule
-import io.realm.Realm
-import io.realm.RealmConfiguration
+import com.nicklasslagbrand.baseline.core.di.viewModelModule
 import net.danlew.android.joda.JodaTimeAndroid
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -26,26 +24,14 @@ class AndroidApp : Application() {
         }
         JodaTimeAndroid.init(this)
 
-        setupRealm()
-
         setupKoin()
 
         createAppNotificationChannel()
     }
 
-    private fun setupRealm() {
-        Realm.init(this)
-        Realm.setDefaultConfiguration(
-            RealmConfiguration.Builder()
-                .name("baseline.realm")
-                .deleteRealmIfMigrationNeeded()
-                .build()
-        )
-    }
-
     private fun setupKoin() {
         startKoin {
-            androidLogger(if (BuildConfig.DEBUG) Level.DEBUG else Level.ERROR)
+            androidLogger(Level.ERROR)
             androidContext(this@AndroidApp)
 
             modules(
@@ -55,7 +41,7 @@ class AndroidApp : Application() {
                         baseUrl = BuildConfig.API_BASE_URL,
                         networkLogging = true
                     ),
-                    useCaseAndViewModelModule()
+                    viewModelModule
                 )
             )
         }

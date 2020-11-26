@@ -12,12 +12,3 @@ val testRepo = GithubRepo(
         avatarUrl = "https://avatars3.githubusercontent.com/u/32689599?v=4"
     )
 )
-
-val testRepo2 = GithubRepo(
-    id = 10699,
-    title = "android/android.github.io",
-    description = "description",
-    owner = Owner(
-        avatarUrl = "https://avatars3.githubusercontent.com/u/32689599?v=4"
-    )
-)

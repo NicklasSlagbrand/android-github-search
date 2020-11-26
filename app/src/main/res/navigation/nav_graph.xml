@@ -2,21 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/fragmentRepoHost">
+    app:startDestination="@id/reposListFragment">
 
     <fragment
-        android:id="@+id/fragmentRepoHost"
-        android:name="com.nicklasslagbrand.baseline.feature.repo.RepoHostFragment"
-        android:label="ReposListFragment"
-        tools:layout="@layout/fragment_repo_host">
-        <action
-            android:id="@+id/action_fragmentRepoHost_to_reposListFragment2"
-            app:destination="@id/reposListFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/reposListFragment"
-        android:name="com.nicklasslagbrand.baseline.feature.repo.repoList.ReposListFragment"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.ReposListFragment"
         android:label="ReposListFragment"
         tools:layout="@layout/fragment_repo_list">
         <action
@@ -25,6 +15,6 @@
     </fragment>
     <fragment
         android:id="@+id/repoDetailsFragment"
-        android:name="com.nicklasslagbrand.baseline.feature.repo.repoDetails.RepoDetailsFragment"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.RepoDetailsFragment"
         android:label="RepoDetailsFragment" />
 </navigation>

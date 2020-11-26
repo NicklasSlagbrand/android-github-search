@@ -1,6 +1,6 @@
 package com.nicklasslagbrand.baseline.domain.repository
 
-import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubReposRepository
+import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
 import com.nicklasslagbrand.baseline.testRepo
 import com.nicklasslagbrand.baseline.testutils.init
 import com.nicklasslagbrand.baseline.testutils.startKoin
@@ -19,7 +19,7 @@ import org.koin.test.inject
 
 class RepoListRepositoryTest : AutoCloseKoinTest() {
     private val mockWebServer = MockWebServer()
-    private val remotesRepository: RemoteGithubReposRepository by inject()
+    private val remotesRepository: RemoteGithubStore by inject()
 
     @Test(expected = retrofit2.HttpException::class)
     fun `check repository returns error if network failure happens`() {

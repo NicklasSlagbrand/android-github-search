@@ -1,22 +1,20 @@
-package com.nicklasslagbrand.baseline.feature.repo.repoList
+package com.nicklasslagbrand.baseline.feature.repo
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.observe
 import com.nicklasslagbrand.baseline.core.extension.observeEvents
-import com.nicklasslagbrand.baseline.feature.base.BaseFragment
-import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel
 import kotlinx.android.synthetic.main.fragment_repo_list.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class ReposListFragment : BaseFragment() {
+class ReposListFragment : Fragment(R.layout.fragment_repo_list) {
     private val reposAdapter: ReposAdapter = ReposAdapter()
 
     private val viewModel: ReposViewModel by sharedViewModel()
-    override fun provideLayoutId(): Int? = R.layout.fragment_repo_list
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,7 +41,6 @@ class ReposListFragment : BaseFragment() {
                 is ReposViewModel.Event.ShowRepoDetails -> navigateToDetails()
             }
         }
-        observeEvents(viewModel.failure, ::handleFailure)
     }
 
     private fun navigateToDetails() {

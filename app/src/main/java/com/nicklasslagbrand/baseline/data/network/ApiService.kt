@@ -35,11 +35,7 @@ private fun createOkHttpClient(
         addNetworkInterceptor(JsonRequestInterceptor())
 
         if (debug) {
-            val loggingInterceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
-                override fun log(message: String) {
-                    println(message)
-                }
-            })
+            val loggingInterceptor = HttpLoggingInterceptor { message -> println(message) }
                 .apply {
                     level = HttpLoggingInterceptor.Level.BODY
                 }

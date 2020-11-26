@@ -1,4 +1,4 @@
-package com.nicklasslagbrand.baseline.feature.repo.repoList
+package com.nicklasslagbrand.baseline.feature.repo
 
 import android.view.LayoutInflater
 import android.view.View

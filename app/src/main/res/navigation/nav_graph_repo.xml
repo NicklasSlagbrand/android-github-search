@@ -20,7 +20,7 @@
         android:name="com.nicklasslagbrand.baseline.feature.repo.RepoDetailsFragment"
         android:label="Details">
         <argument
-            android:name="githubRepo"
+            android:name="repo"
             app:argType="com.nicklasslagbrand.baseline.domain.model.GithubRepo" />
     </fragment>
 </navigation>

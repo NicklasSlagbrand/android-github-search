@@ -54,8 +54,8 @@ class ReposListFragment : Fragment() {
         observeEvents(viewModel.eventLiveData) {
             when(it) {
                 is ReposViewModel.Event.ShowRepoDetails -> {
-                    val bundle = bundleOf("githubRepo" to it.repo)
-                    findNavController().navigate(R.id.action_List_to_details, bundle)
+                    val action = ReposListFragmentDirections.actionListToDetails(it.repo)
+                    findNavController().navigate(action)
                 }
             }
 

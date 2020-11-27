@@ -1,5 +1,6 @@
-package com.nicklasslagbrand.baseline.data.network
+package com.nicklasslagbrand.baseline.data
 
+import com.nicklasslagbrand.baseline.data.network.NetworkConnectionInterceptor
 import com.nicklasslagbrand.baseline.domain.error.NoNetworkConnectionException
 import com.nicklasslagbrand.baseline.testutils.TestNetworkConnectionChecker
 import io.mockk.every

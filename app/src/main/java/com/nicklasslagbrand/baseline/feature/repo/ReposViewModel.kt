@@ -9,6 +9,7 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
 import com.nicklasslagbrand.baseline.domain.dataSource.ReposDataSource
+import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -18,7 +19,7 @@ class ReposViewModel(
     private val backgroundDispatcher: CoroutineDispatcher
 ) : ViewModel() {
     val eventLiveData = MutableLiveData<ConsumableEvent<Event>>()
-    val reposLiveData: LiveData<PagedList<GithubRepo>>
+    private val reposLiveData: LiveData<PagedList<GithubRepo>>
 
     init {
         val config = PagedList.Config.Builder()
@@ -35,7 +36,10 @@ class ReposViewModel(
             override fun create(): DataSource<Long, GithubRepo> {
                 return ReposDataSource(
                     repository = repository,
-                    coroutineContext = backgroundDispatcher
+                    coroutineContext = backgroundDispatcher,
+                    onError = {
+                        onFailure(it)
+                    }
                 )
             }
         }
@@ -47,7 +51,13 @@ class ReposViewModel(
     fun itemClicked(item: GithubRepo) {
         eventLiveData.value = ConsumableEvent(Event.ShowRepoDetails(item))
     }
+
+    private fun onFailure(error: Error) {
+        eventLiveData.value = ConsumableEvent(Event.OnError(error))
+    }
+
     sealed class Event {
         data class ShowRepoDetails(val repo: GithubRepo) : Event()
+        data class OnError(val error: Error) : Event()
     }
 }

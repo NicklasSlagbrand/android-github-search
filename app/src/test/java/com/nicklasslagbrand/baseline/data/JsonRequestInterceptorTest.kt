@@ -1,5 +1,6 @@
-package com.nicklasslagbrand.baseline.data.network
+package com.nicklasslagbrand.baseline.data
 
+import com.nicklasslagbrand.baseline.data.network.JsonRequestInterceptor
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot

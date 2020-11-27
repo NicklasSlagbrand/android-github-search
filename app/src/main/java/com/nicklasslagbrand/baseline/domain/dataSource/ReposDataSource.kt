@@ -1,6 +1,7 @@
 package com.nicklasslagbrand.baseline.domain.dataSource
 
 import androidx.paging.PageKeyedDataSource
+import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 import kotlin.coroutines.CoroutineContext
@@ -11,7 +12,8 @@ import kotlinx.coroutines.withContext
 
 class ReposDataSource(
     coroutineContext: CoroutineContext,
-    val repository: GithubRepository
+    val repository: GithubRepository,
+    var onError: (Error) -> Unit
 ) : PageKeyedDataSource<Long, GithubRepo>() {
     private val job = Job()
     private val scope = CoroutineScope(coroutineContext + job)
@@ -27,7 +29,7 @@ class ReposDataSource(
             result.fold({
                 callback.onResult(it, 1, DEFAULT_PAGE + 1)
             }, {
-
+                onError(it)
             })
         }
     }
@@ -40,7 +42,9 @@ class ReposDataSource(
             }
             result.fold({
                 callback.onResult(it, params.key + 1)
-            }, {})
+            }, {
+                onError(it)
+            })
         }
     }
 

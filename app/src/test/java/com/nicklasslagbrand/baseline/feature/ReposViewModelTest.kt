@@ -1,4 +1,4 @@
-package com.nicklasslagbrand.baseline.feature.repo
+package com.nicklasslagbrand.baseline.feature
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
@@ -8,6 +8,7 @@ import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 import com.nicklasslagbrand.baseline.domain.result.Result
+import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel
 import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel.Event
 import com.nicklasslagbrand.baseline.testRepo
 import com.nicklasslagbrand.baseline.testutils.CoroutinesMainDispatcherRule
@@ -63,7 +64,7 @@ class ReposViewModelTest : AutoCloseKoinTest() {
     }
 
     @Test
-    fun `check viewmodel handles failure case correctly`() = runBlockingTest {
+    fun `viewmodel returning missing network error correctly`() = runBlockingTest {
 
         coEvery {
             getRepos.getAndroidRepos(1)
@@ -72,7 +73,20 @@ class ReposViewModelTest : AutoCloseKoinTest() {
         }
 
         viewModel.getReposList().observeForever(reposObserver)
-//        failureObserver.shouldContainEvents(Error.MissingNetworkConnection)
+        eventObserver.shouldContainEvents(Event.OnError(Error.MissingNetworkConnection))
+    }
+
+    @Test
+    fun `viewmodel returning GeneralError correctly`() = runBlockingTest {
+        val exception = Exception()
+        coEvery {
+            getRepos.getAndroidRepos(1)
+        } answers {
+            Result.failure(Error.GeneralError(exception))
+        }
+
+        viewModel.getReposList().observeForever(reposObserver)
+        eventObserver.shouldContainEvents(Event.OnError(Error.GeneralError(exception)))
     }
 
     @Before
@@ -82,6 +96,6 @@ class ReposViewModelTest : AutoCloseKoinTest() {
         startKoin(overridesModule = module(override = true) {
             single { getRepos }
         })
-        eventObserver = viewModel.eventsLiveData.testObserver()
+        eventObserver = viewModel.eventLiveData.testObserver()
     }
 }

@@ -1,4 +1,4 @@
-package com.nicklasslagbrand.baseline.domain.repository
+package com.nicklasslagbrand.baseline.data
 
 import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
 import com.nicklasslagbrand.baseline.testRepo
@@ -17,7 +17,7 @@ import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 
-class RepoListRepositoryTest : AutoCloseKoinTest() {
+class RemoteGithubStoreTest : AutoCloseKoinTest() {
     private val mockWebServer = MockWebServer()
     private val remotesRepository: RemoteGithubStore by inject()
 

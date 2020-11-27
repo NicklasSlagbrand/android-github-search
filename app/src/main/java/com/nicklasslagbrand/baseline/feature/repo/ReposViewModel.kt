@@ -17,8 +17,7 @@ class ReposViewModel(
     private val repository: GithubRepository,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : ViewModel() {
-    val activeGithubRepo = MutableLiveData<GithubRepo>()
-
+    val eventLiveData = MutableLiveData<ConsumableEvent<Event>>()
     val reposLiveData: LiveData<PagedList<GithubRepo>>
 
     init {
@@ -46,7 +45,7 @@ class ReposViewModel(
     fun getReposList(): LiveData<PagedList<GithubRepo>> = reposLiveData
 
     fun itemClicked(item: GithubRepo) {
-        activeGithubRepo.value = item
+        eventLiveData.value = ConsumableEvent(Event.ShowRepoDetails(item))
     }
     sealed class Event {
         data class ShowRepoDetails(val repo: GithubRepo) : Event()

@@ -1,7 +1,10 @@
 package com.nicklasslagbrand.baseline.domain.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class GithubRepo(
     @SerializedName("id")
     val id: Int?,
@@ -10,5 +13,7 @@ data class GithubRepo(
     @SerializedName("description")
     val description: String? = "",
     val owner: Owner
-)
-data class Owner(@SerializedName("avatar_url") val avatarUrl: String? = "")
+): Parcelable
+
+@Parcelize
+data class Owner(@SerializedName("avatar_url") val avatarUrl: String? = ""): Parcelable

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.observe
 import com.nicklasslagbrand.baseline.core.extension.observeEvents
@@ -21,9 +21,7 @@ class ReposListFragment : Fragment() {
     private val viewModel: ReposViewModel by sharedViewModel()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRepoListBinding.inflate(inflater, container, false)
         return binding.root
@@ -53,13 +51,14 @@ class ReposListFragment : Fragment() {
             reposAdapter.submitList(it)
         }
 
-        observe(viewModel.activeGithubRepo) {
-            navigateToDetails()
-        }
-    }
+        observeEvents(viewModel.eventLiveData) {
+            when(it) {
+                is ReposViewModel.Event.ShowRepoDetails -> {
+                    val bundle = bundleOf("githubRepo" to it.repo)
+                    findNavController().navigate(R.id.action_List_to_details, bundle)
+                }
+            }
 
-    private fun navigateToDetails() {
-        findNavController().navigate(
-            R.id.action_reposListFragment_to_repoDetailsFragment)
+        }
     }
 }

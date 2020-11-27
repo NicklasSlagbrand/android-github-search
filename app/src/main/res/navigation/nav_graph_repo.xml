@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/repo"
+    app:startDestination="@id/listScreen">
+
+    <fragment
+        android:id="@+id/listScreen"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.ReposListFragment"
+        android:label="List"
+        tools:layout="@layout/fragment_repo_list">
+        <action
+            android:id="@+id/action_List_to_details"
+            app:destination="@id/detailsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsScreen"
+        android:name="com.nicklasslagbrand.baseline.feature.repo.RepoDetailsFragment"
+        android:label="Details">
+        <argument
+            android:name="githubRepo"
+            app:argType="com.nicklasslagbrand.baseline.domain.model.GithubRepo" />
+    </fragment>
+</navigation>

@@ -70,6 +70,8 @@ dependencies {
     def glideVersion = "4.11.0"
     def lifecycleVersion = "2.2.0"
 
+    implementation "androidx.startup:startup-runtime:1.0.0"
+
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 

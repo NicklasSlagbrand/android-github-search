@@ -29,27 +29,14 @@ class RepoDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val exampleTags = listOf("Android", "Github", "Test")
-
         binding.ivAvatar.loadImageWithFitCenterTransform(args.repo.owner.avatarUrl?: "")
         binding.tvTitle.text = args.repo.title
         binding.tvDescription.text = args.repo.description
 
-        createSkillsChips(exampleTags)
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun createSkillsChips(skills: List<String>) {
-        skills.onEach {
-            val chip = Chip(requireContext(), null, R.style.Chip_Skills)
-            chip.text = it
-
-            binding.cgSkillsGroup.addView(chip)
-        }
     }
 }

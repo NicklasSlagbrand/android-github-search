@@ -3,14 +3,14 @@ package com.nicklasslagbrand.baseline.feature
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
+import com.nicklasslagbrand.baseline.*
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 import com.nicklasslagbrand.baseline.domain.result.Result
-import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel
-import com.nicklasslagbrand.baseline.feature.repo.ReposViewModel.Event
-import com.nicklasslagbrand.baseline.testRepo
+import com.nicklasslagbrand.baseline.feature.repo.RepoViewModel
+import com.nicklasslagbrand.baseline.feature.repo.RepoViewModel.Event
 import com.nicklasslagbrand.baseline.testutils.CoroutinesMainDispatcherRule
 import com.nicklasslagbrand.baseline.testutils.TestObserver
 import com.nicklasslagbrand.baseline.testutils.startKoin
@@ -29,13 +29,13 @@ import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 
 @ExperimentalCoroutinesApi
-class ReposViewModelTest : AutoCloseKoinTest() {
+class RepoViewModelTest : AutoCloseKoinTest() {
     @get:Rule
     val rule = InstantTaskExecutorRule()
     @get:Rule
     var coroutinesTestRule = CoroutinesMainDispatcherRule()
 
-    private val viewModel: ReposViewModel by inject()
+    private val viewModel: RepoViewModel by inject()
 
     private lateinit var eventObserver: TestObserver<ConsumableEvent<Event>>
     private var reposObserver: Observer<PagedList<GithubRepo>> = mock()

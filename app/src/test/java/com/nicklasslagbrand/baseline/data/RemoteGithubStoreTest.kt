@@ -1,10 +1,10 @@
 package com.nicklasslagbrand.baseline.data
 
-import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
-import com.nicklasslagbrand.baseline.testRepo
+import com.nicklasslagbrand.baseline.data.datasource.RemoteGithubStore
 import com.nicklasslagbrand.baseline.testutils.init
 import com.nicklasslagbrand.baseline.testutils.startKoin
 import com.nicklasslagbrand.baseline.testutils.successFromFile
+import com.nicklasslagbrand.baseline.testRepo
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import kotlinx.coroutines.runBlocking

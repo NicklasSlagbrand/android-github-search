@@ -1,6 +1,6 @@
 package com.nicklasslagbrand.baseline.domain.repository
 
-import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
+import com.nicklasslagbrand.baseline.data.datasource.RemoteGithubStore
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.result.Result

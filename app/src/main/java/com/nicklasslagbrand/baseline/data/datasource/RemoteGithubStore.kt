@@ -1,4 +1,4 @@
-package com.nicklasslagbrand.baseline.data.datasource.remote
+package com.nicklasslagbrand.baseline.data.datasource
 
 import com.nicklasslagbrand.baseline.data.network.GithubApi
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo

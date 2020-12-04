@@ -2,19 +2,18 @@ package com.nicklasslagbrand.baseline.feature.repo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.nicklasslagbrand.baseline.data.viewmodel.ConsumableEvent
-import com.nicklasslagbrand.baseline.domain.dataSource.ReposDataSource
+import com.nicklasslagbrand.baseline.domain.dataSource.RepoDataSource
 import com.nicklasslagbrand.baseline.domain.error.Error
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
 import kotlinx.coroutines.CoroutineDispatcher
 
-class ReposViewModel(
+class RepoViewModel(
     private val repository: GithubRepository,
     private val backgroundDispatcher: CoroutineDispatcher
 ) : ViewModel() {
@@ -34,7 +33,7 @@ class ReposViewModel(
 
         val dataSourceFactory = object : DataSource.Factory<Long, GithubRepo>() {
             override fun create(): DataSource<Long, GithubRepo> {
-                return ReposDataSource(
+                return RepoDataSource(
                     repository = repository,
                     coroutineContext = backgroundDispatcher,
                     onError = {

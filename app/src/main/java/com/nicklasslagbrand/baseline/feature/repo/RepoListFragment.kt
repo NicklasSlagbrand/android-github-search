@@ -5,21 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.nicklasslagbrand.baseline.R
 import com.nicklasslagbrand.baseline.core.extension.observe
 import com.nicklasslagbrand.baseline.core.extension.observeEvents
 import com.nicklasslagbrand.baseline.databinding.FragmentRepoListBinding
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class ReposListFragment : Fragment() {
+class RepoListFragment : Fragment() {
     private var _binding: FragmentRepoListBinding? = null
     private val binding get() = _binding!!
 
     private val reposAdapter: ReposAdapter = ReposAdapter()
-    private val viewModel: ReposViewModel by sharedViewModel()
+    private val viewModel: RepoViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -54,11 +52,11 @@ class ReposListFragment : Fragment() {
 
         observeEvents(viewModel.eventLiveData) {
             when(it) {
-                is ReposViewModel.Event.ShowRepoDetails -> {
-                    val action = ReposListFragmentDirections.actionListToDetails(it.repo)
+                is RepoViewModel.Event.ShowRepoDetails -> {
+                    val action = RepoListFragmentDirections.actionListToDetails(it.repo)
                     findNavController().navigate(action)
                 }
-                is ReposViewModel.Event.OnError -> {
+                is RepoViewModel.Event.OnError -> {
                     Toast.makeText(requireContext(), it.error.toString(), Toast.LENGTH_LONG).show()
                 }
             }

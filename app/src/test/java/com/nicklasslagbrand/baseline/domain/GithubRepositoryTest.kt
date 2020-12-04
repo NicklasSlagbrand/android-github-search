@@ -1,10 +1,10 @@
 package com.nicklasslagbrand.baseline.domain
 
-import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
+import com.nicklasslagbrand.baseline.data.datasource.RemoteGithubStore
 import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
-import com.nicklasslagbrand.baseline.testRepo
 import com.nicklasslagbrand.baseline.testutils.failIfError
 import com.nicklasslagbrand.baseline.testutils.startKoin
+import com.nicklasslagbrand.baseline.testRepo
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk

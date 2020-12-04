@@ -12,10 +12,10 @@ import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterTransf
 import com.nicklasslagbrand.baseline.databinding.FragmentRepoDetailsBinding
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 
-class RepoDetailsFragment : Fragment() {
+class RepoDetailFragment : Fragment() {
     private var _binding: FragmentRepoDetailsBinding? = null
     private val binding get() = _binding!!
-    private val args: RepoDetailsFragmentArgs by navArgs()
+    private val args: RepoDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater,

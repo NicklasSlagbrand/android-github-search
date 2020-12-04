@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ReposDataSource(
+class RepoDataSource(
     coroutineContext: CoroutineContext,
     val repository: GithubRepository,
     var onError: (Error) -> Unit

@@ -3,7 +3,6 @@ def appVersionName = "1.0.0"
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
@@ -66,34 +65,21 @@ android {
 
 dependencies {
     def koinVersion = "2.2.1"
-    def coroutinesVersion = "1.4.1"
-    def glideVersion = "4.11.0"
     def paging_version = "3.0.0-alpha12"
 
-
+    implementation project(':core')
     //Android
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("com.google.android.material:material:1.2.1")
-    implementation("net.danlew:android.joda:2.10.6")
 
-    //Glide
-    implementation("com.github.bumptech.glide:glide:$glideVersion")
-    kapt("com.github.bumptech.glide:compiler:$glideVersion")
-    implementation("jp.wasabeef:glide-transformations:4.1.0")
+
 
     //Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 
     //Dependency injection
     implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
-    //Network
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
-    implementation("com.jakewharton.timber:timber:4.7.1")
-
-    //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     //Navigation
     implementation ("androidx.navigation:navigation-runtime-ktx:$navVersion")
@@ -105,12 +91,4 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
-
-    testImplementation("junit:junit:4.13.1")
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
-    testImplementation("org.koin:koin-test:$koinVersion")
-    testImplementation("io.mockk:mockk:1.10.2")
-    testImplementation("org.amshove.kluent:kluent-android:1.60")
-    testImplementation("android.arch.core:core-testing:1.1.1")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
 }

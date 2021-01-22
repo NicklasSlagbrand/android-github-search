@@ -1,9 +1,9 @@
 package com.nicklasslagbrand.baseline.feature.repo
 
 import androidx.paging.PagingSource
-import com.nicklasslagbrand.baseline.domain.model.GithubRepo
-import com.nicklasslagbrand.baseline.domain.result.Result
-import com.nicklasslagbrand.baseline.domain.repository.GithubRepository
+import com.nicklasslagbrand.core.entity.GithubRepo
+import com.nicklasslagbrand.core.repository.GithubRepository
+import com.nicklasslagbrand.core.result.Result
 
 
 class RepoPagingSource(

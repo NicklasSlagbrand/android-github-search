@@ -1,0 +1,17 @@
+@file:Suppress("unused")
+package com.nicklasslagbrand.core.testUtils
+
+import org.junit.Assert.fail
+
+
+fun failIfError(error: Exception) {
+    fail("Something went wrong. Error callback should not be triggered here. Error : $error")
+}
+
+fun failIfSuccess(value: Any) {
+    fail("Something went wrong. Successful callback should not be triggered here. Value : $value")
+}
+
+fun doNothingForSuccess(value: Any) {
+    // Everything is OK. Just skipp.
+}

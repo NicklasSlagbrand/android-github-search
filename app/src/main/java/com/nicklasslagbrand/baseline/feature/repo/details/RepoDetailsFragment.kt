@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterCircleCrop
+import com.nicklasslagbrand.core.extension.loadImageWithFitCenterCircleCrop
 import com.nicklasslagbrand.baseline.databinding.FragmentRepoDetailsBinding
 
 class RepoDetailsFragment : Fragment() {

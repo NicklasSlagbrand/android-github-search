@@ -1,7 +1,6 @@
 package com.nicklasslagbrand.baseline.feature.repo.list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.SearchView
 import androidx.core.view.isVisible
@@ -9,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
-import androidx.recyclerview.widget.DividerItemDecoration
-import com.nicklasslagbrand.baseline.core.extension.showKeyboard
+import com.nicklasslagbrand.core.extension.showKeyboard
 import com.nicklasslagbrand.baseline.databinding.FragmentRepoListBinding
 import com.nicklasslagbrand.baseline.feature.repo.RepoViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi

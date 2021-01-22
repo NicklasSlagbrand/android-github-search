@@ -1,7 +1,5 @@
 package com.nicklasslagbrand.baseline.feature.repo.list
 
-import android.opengl.Visibility
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +7,9 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.nicklasslagbrand.baseline.R
-import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterCircleCrop
+import com.nicklasslagbrand.core.extension.loadImageWithFitCenterCircleCrop
 import com.nicklasslagbrand.baseline.databinding.ItemRepoBinding
-import com.nicklasslagbrand.baseline.domain.model.GithubRepo
+import com.nicklasslagbrand.core.entity.GithubRepo
 
 class ReposAdapter : PagingDataAdapter<GithubRepo, ReposAdapter.RepoListViewHolder>(REPO_COMPARATOR) {
     var clickListener: (GithubRepo) -> Unit = {}

@@ -22,13 +22,10 @@
             tools:node="merge">
 
             <meta-data
-                android:name="com.nicklasslagbrand.baseline.core.KoinInitializer"
+                android:name="com.nicklasslagbrand.baseline.KoinInitializer"
                 android:value="androidx.startup" />
             <meta-data
-                android:name="com.nicklasslagbrand.baseline.core.TimberInitializer"
-                android:value="androidx.startup" />
-            <meta-data
-                android:name="com.nicklasslagbrand.baseline.core.JodaInitializer"
+                android:name="com.nicklasslagbrand.baseline.TimberInitializer"
                 android:value="androidx.startup" />
 
         </provider>

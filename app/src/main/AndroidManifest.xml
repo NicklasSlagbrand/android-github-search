@@ -33,7 +33,7 @@
 
         </provider>
         <activity
-            android:name="com.nicklasslagbrand.baseline.feature.repo.ReposActivity">
+            android:name="com.nicklasslagbrand.baseline.feature.repo.RepoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -1,17 +1,22 @@
 package com.nicklasslagbrand.baseline.domain.repository
 
-import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
-import com.nicklasslagbrand.baseline.domain.error.Error
+import com.nicklasslagbrand.baseline.data.network.ApiService
 import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 import com.nicklasslagbrand.baseline.domain.result.Result
 import com.nicklasslagbrand.baseline.domain.result.wrapResult
 
 class GithubRepository(
-    private val remoteRepository: RemoteGithubStore
-) {
-    suspend fun getAndroidRepos(page: Long): Result<List<GithubRepo>, Error> {
-        return wrapResult {
-            remoteRepository.getAndroidRepos(page)
-        }
+    private val apiService: ApiService,
+){
+
+    suspend fun getGithubReposBySearch(
+        query: String,
+        lastRequestedPage: Int
+    ): Result<List<GithubRepo>> = wrapResult {
+        apiService.searchRepos(query, lastRequestedPage, NETWORK_PAGE_SIZE).items
+    }
+
+    companion object {
+        private const val NETWORK_PAGE_SIZE = 50
     }
 }

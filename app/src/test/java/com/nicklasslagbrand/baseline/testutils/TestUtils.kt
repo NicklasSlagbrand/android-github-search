@@ -5,7 +5,7 @@ import com.nicklasslagbrand.baseline.domain.error.Error
 import org.junit.Assert.fail
 
 
-fun failIfError(error: Error) {
+fun failIfError(error: Exception) {
     fail("Something went wrong. Error callback should not be triggered here. Error : $error")
 }
 

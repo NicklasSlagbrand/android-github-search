@@ -1,30 +1,13 @@
 package com.nicklasslagbrand.baseline.data.network
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.nicklasslagbrand.baseline.BuildConfig
+import com.nicklasslagbrand.baseline.domain.model.RepoSearchResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.joda.time.DateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-fun createGithubApi(
-    debug: Boolean = false,
-    baseUrl: String,
-    connectionChecker: NetworkConnectionChecker
-): GithubApi {
-    return Retrofit.Builder()
-        .baseUrl(baseUrl)
-        .client(
-            createOkHttpClient(
-                debug = debug,
-                networkConnectionChecker = connectionChecker
-            )
-        )
-        .addConverterFactory(GsonConverterFactory.create(createNetworkResponseGson()))
-        .build()
-        .create(GithubApi::class.java)
-}
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 private fun createOkHttpClient(
     debug: Boolean,
@@ -44,9 +27,39 @@ private fun createOkHttpClient(
     }.build()
 }
 
-private fun createNetworkResponseGson(): Gson {
-    return GsonBuilder()
-        .registerTypeAdapter(DateTime::class.java, DateTimeDeserializer())
-        .setLenient()
-        .create()
+
+/**
+ * Github API communication setup via Retrofit.
+ */
+interface ApiService {
+    /**
+     * Get repos ordered by stars.
+     */
+    @GET("search/repositories?sort=stars")
+    suspend fun searchRepos(
+        @Query("q") query: String,
+        @Query("page") page: Int,
+        @Query("per_page") itemsPerPage: Int
+    ): RepoSearchResponse
+
+    companion object {
+        fun create(
+            baseUrl: String,
+            connectionChecker: NetworkConnectionChecker
+        ): ApiService {
+            val logger = HttpLoggingInterceptor()
+            logger.level = HttpLoggingInterceptor.Level.BASIC
+
+            val client = createOkHttpClient(
+                debug = BuildConfig.DEBUG,
+                networkConnectionChecker = connectionChecker
+            )
+            return Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiService::class.java)
+        }
+    }
 }

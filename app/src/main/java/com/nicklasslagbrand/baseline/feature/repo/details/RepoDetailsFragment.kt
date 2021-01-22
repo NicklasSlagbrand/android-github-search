@@ -1,4 +1,4 @@
-package com.nicklasslagbrand.baseline.feature.repo
+package com.nicklasslagbrand.baseline.feature.repo.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.chip.Chip
-import com.nicklasslagbrand.baseline.R
-import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterTransform
+import com.nicklasslagbrand.baseline.core.extension.loadImageWithFitCenterCircleCrop
 import com.nicklasslagbrand.baseline.databinding.FragmentRepoDetailsBinding
-import com.nicklasslagbrand.baseline.domain.model.GithubRepo
 
 class RepoDetailsFragment : Fragment() {
     private var _binding: FragmentRepoDetailsBinding? = null
@@ -29,13 +26,11 @@ class RepoDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val exampleTags = listOf("Android", "Github", "Test")
-
-        binding.ivAvatar.loadImageWithFitCenterTransform(args.repo.owner.avatarUrl?: "")
-        binding.tvTitle.text = args.repo.title
-        binding.tvDescription.text = args.repo.description
-
-        createSkillsChips(exampleTags)
+        with(binding) {
+            ivAvatar.loadImageWithFitCenterCircleCrop(args.repo.owner.avatarUrl)
+            tvTitle.text = args.repo.name
+            tvDescription.text = args.repo.description
+        }
     }
 
 
@@ -44,12 +39,4 @@ class RepoDetailsFragment : Fragment() {
         _binding = null
     }
 
-    private fun createSkillsChips(skills: List<String>) {
-        skills.onEach {
-            val chip = Chip(requireContext(), null, R.style.Chip_Skills)
-            chip.text = it
-
-            binding.cgSkillsGroup.addView(chip)
-        }
-    }
 }

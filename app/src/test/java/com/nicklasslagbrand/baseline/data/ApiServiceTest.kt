@@ -1,7 +1,8 @@
 package com.nicklasslagbrand.baseline.data
 
-import com.nicklasslagbrand.baseline.data.datasource.remote.RemoteGithubStore
+import com.nicklasslagbrand.baseline.data.network.ApiService
 import com.nicklasslagbrand.baseline.testRepo
+import com.nicklasslagbrand.baseline.testSearchResponse
 import com.nicklasslagbrand.baseline.testutils.init
 import com.nicklasslagbrand.baseline.testutils.startKoin
 import com.nicklasslagbrand.baseline.testutils.successFromFile
@@ -10,26 +11,27 @@ import io.mockk.coEvery
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import org.amshove.kluent.shouldContain
+import org.amshove.kluent.shouldBe
+import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Before
 import org.junit.Test
 import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
 
-class RemoteGithubStoreTest : AutoCloseKoinTest() {
+class ApiServiceTest : AutoCloseKoinTest() {
     private val mockWebServer = MockWebServer()
-    private val remotesRepository: RemoteGithubStore by inject()
+    private val apiService: ApiService by inject()
 
     @Test(expected = retrofit2.HttpException::class)
     fun `check repository returns error if network failure happens`() {
         runBlocking {
             mockWebServer.enqueue(MockResponse().setResponseCode(500))
             coEvery {
-                remotesRepository.getAndroidRepos(1)
-            } returns emptyList()
+                apiService.searchRepos("",1,1)
+            } returns testSearchResponse
 
-            remotesRepository.getAndroidRepos(1)
+            apiService.searchRepos("",1,1)
         }
     }
 
@@ -38,8 +40,8 @@ class RemoteGithubStoreTest : AutoCloseKoinTest() {
         runBlocking {
             mockWebServer.enqueue(successFromFile("get-repo-list-success.json"))
 
-            val repo = remotesRepository.getAndroidRepos(1)
-            repo.shouldContain(testRepo)
+            val repo = apiService.searchRepos("",1,1)
+            repo.total.shouldBeEqualTo(1122077)
         }
     }
 
@@ -50,7 +52,6 @@ class RemoteGithubStoreTest : AutoCloseKoinTest() {
         val mockedBaseUrl = mockWebServer.init()
         startKoin(
             baseUrl = mockedBaseUrl,
-            networkLogging = true,
             overridesModule = module(override = true) {
             })
     }

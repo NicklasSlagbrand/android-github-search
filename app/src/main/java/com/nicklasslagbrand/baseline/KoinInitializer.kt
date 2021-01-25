@@ -2,8 +2,7 @@ package com.nicklasslagbrand.baseline
 
 import android.content.Context
 import androidx.startup.Initializer
-import com.nicklasslagbrand.baseline.di.androidPlatformModule
-import com.nicklasslagbrand.baseline.di.networkModule
+import com.nicklasslagbrand.baseline.di.coreModule
 import com.nicklasslagbrand.baseline.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -20,8 +19,7 @@ class KoinInitializer: Initializer<KoinApplication> {
 
             modules(
                 listOf(
-                    androidPlatformModule,
-                    networkModule("https://api.github.com/"),
+                    coreModule,
                     viewModelModule
                 )
             )

@@ -43,8 +43,9 @@ interface ApiService {
     ): RepoSearchResponse
 
     companion object {
+        private const val API_BASE_URL = "https://api.github.com"
+
         fun create(
-            baseUrl: String,
             debug: Boolean,
             connectionChecker: NetworkConnectionChecker
         ): ApiService {
@@ -56,7 +57,26 @@ interface ApiService {
                 networkConnectionChecker = connectionChecker
             )
             return Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(API_BASE_URL)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiService::class.java)
+        }
+
+        fun createFakeApi(
+            mockUrl: String,
+            connectionChecker: NetworkConnectionChecker
+        ): ApiService {
+            val logger = HttpLoggingInterceptor()
+            logger.level = HttpLoggingInterceptor.Level.BASIC
+
+            val client = createOkHttpClient(
+                debug = true,
+                networkConnectionChecker = connectionChecker
+            )
+            return Retrofit.Builder()
+                .baseUrl(mockUrl)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

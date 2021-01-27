@@ -61,7 +61,6 @@ class ReposListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             reposAdapter.loadStateFlow.collectLatest {
                 binding.pb.isVisible = it.refresh is LoadState.Loading
-                binding.rvRepos.isVisible = it.refresh is LoadState.NotLoading
             }
         }
     }

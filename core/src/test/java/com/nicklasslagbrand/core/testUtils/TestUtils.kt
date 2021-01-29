@@ -2,8 +2,6 @@
 package com.nicklasslagbrand.core.testUtils
 
 import org.junit.Assert.fail
-import com.nicklasslagbrand.core.error.Error
-
 
 fun failIfError(error: Error) {
     fail("Something went wrong. Error callback should not be triggered here. Error : $error")

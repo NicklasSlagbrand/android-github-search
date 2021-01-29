@@ -15,7 +15,7 @@ class RepoViewModel(
 
     init {
         if (!state.contains(KEY_SEARCH_QUERY)) {
-            state.set(KEY_SEARCH_QUERY, "android")
+            state.set(KEY_SEARCH_QUERY, DEFAULT_SEARCH_QUERY)
         }
     }
 
@@ -33,5 +33,6 @@ class RepoViewModel(
 
     companion object {
         const val KEY_SEARCH_QUERY = "searchQuery"
+        const val DEFAULT_SEARCH_QUERY = "android"
     }
 }

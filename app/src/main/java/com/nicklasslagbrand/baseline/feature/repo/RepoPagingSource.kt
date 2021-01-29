@@ -5,7 +5,6 @@ import com.nicklasslagbrand.core.entity.GithubRepo
 import com.nicklasslagbrand.core.repository.GithubRepository
 import com.nicklasslagbrand.core.result.Result
 
-
 class RepoPagingSource(
     private val repository: GithubRepository,
     private val searchQuery: String,

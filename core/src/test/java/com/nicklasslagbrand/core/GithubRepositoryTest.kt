@@ -1,6 +1,5 @@
 package com.nicklasslagbrand.core
 
-import com.nicklasslagbrand.core.error.Error
 import com.nicklasslagbrand.core.network.ApiService
 import com.nicklasslagbrand.core.repository.GithubRepository
 import com.nicklasslagbrand.core.result.Result
@@ -9,10 +8,8 @@ import io.mockk.clearAllMocks
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import org.amshove.kluent.shouldBeInstanceOf
 import org.junit.Before
 import org.junit.Test
-import kotlin.test.assertTrue
 
 class GithubRepositoryTest {
     private val mockWebServer = MockWebServer()
@@ -25,7 +22,7 @@ class GithubRepositoryTest {
             mockWebServer.enqueue(MockResponse().setResponseCode(500))
 
             when(val result = repository.getGithubReposBySearch("", 1)){
-                is Result.Failure -> result.error.shouldBeInstanceOf<Error.GeneralError>()
+                is Result.Failure -> doNothingForFail(result.exception)
                 else -> failIfSuccess(result)
             }
         }
@@ -36,20 +33,8 @@ class GithubRepositoryTest {
         runBlocking {
             mockWebServer.enqueue(successFromFile("get-repo-list-success.json"))
             when(val repo = repository.getGithubReposBySearch("", 1)) {
-                is Result.Success -> {
-                    assertTrue {
-                        with(repo.data[0]) {
-                            id == testRepo.id
-                            name == testRepo.name
-                            fullName == testRepo.fullName
-                            description == testRepo.description
-                            stars == testRepo.stars
-                            forks == testRepo.forks
-                            owner.avatarUrl == testOwner.avatarUrl
-                            language == null
-                        }
-                    }
-                }
+                is Result.Success -> assert(repo.data[0] == testRepo)
+                is Result.Failure -> failIfException(repo.exception)
             }
 
         }

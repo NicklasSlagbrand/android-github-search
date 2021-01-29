@@ -16,7 +16,6 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-
 @ExperimentalCoroutinesApi
 class ReposListFragment : Fragment() {
     private var _binding: FragmentRepoListBinding? = null

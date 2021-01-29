@@ -3,6 +3,7 @@ def appVersionName = "1.0.0"
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
@@ -12,8 +13,7 @@ android {
         experimental = true
     }
     buildFeatures {viewBinding true}
-    dataBinding {enabled true
-    }
+    dataBinding {enabled true}
     viewBinding {
         enabled true
     }
@@ -60,6 +60,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
+    }
+    lintOptions{
+        disable 'ContentDescription'
+
     }
 }
 

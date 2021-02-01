@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation project(':core')
 
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
     //Android
     implementation("androidx.constraintlayout:constraintlayout:$constraintL_version")
     implementation("com.google.android.material:material:$material_version")
@@ -51,4 +52,5 @@ dependencies {
     implementation ("androidx.navigation:navigation-runtime-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
 }

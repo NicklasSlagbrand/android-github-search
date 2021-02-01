@@ -41,6 +41,7 @@ class ReposAdapter : PagingDataAdapter<GithubRepo, ReposAdapter.RepoListViewHold
             }
         }
     }
+
     companion object {
         private val REPO_COMPARATOR = object : DiffUtil.ItemCallback<GithubRepo>() {
             override fun areItemsTheSame(oldItem: GithubRepo, newItem: GithubRepo): Boolean =

@@ -4,6 +4,7 @@ import android.app.SearchManager
 import android.content.Intent
 import android.os.Bundle
 import android.provider.SearchRecentSuggestions
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.nicklasslagbrand.searchactivity.R
@@ -22,6 +23,8 @@ class SearchResultsActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(SearchViewModel::class.java)
         setContentView(binding.root)
+        binding.shimmerViewContainer.startShimmer()
+
         handleIntent(intent)
         setupObservers()
         binding.tvSearchQuery.text = searchQuery
@@ -39,6 +42,8 @@ class SearchResultsActivity : AppCompatActivity() {
                 }
             }
             binding.tvResultMessage.text = getString(R.string.results_message,it.size)
+            binding.shimmerViewContainer.stopShimmer()
+            binding.shimmerViewContainer.visibility = View.GONE
         })
         viewModel.getResult(searchQuery)
     }

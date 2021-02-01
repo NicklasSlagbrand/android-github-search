@@ -11,4 +11,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">App name</string>
     <string name="repositories">Repositories</string>
+    <string name="search_title">Search</string>
+    <string name="results_message">%1$d total results</string>
+    <string name="search_hint">Search for repositories...</string>
 </resources>

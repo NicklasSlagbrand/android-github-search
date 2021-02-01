@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listScreen"
-        android:name="com.nicklasslagbrand.baseline.feature.repo.list.ReposListFragment"
+        android:name="com.nicklasslagbrand.feature.repo.list.ReposListFragment"
         android:label="List"
         tools:layout="@layout/fragment_repo_list">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsScreen"
-        android:name="com.nicklasslagbrand.baseline.feature.repo.details.RepoDetailsFragment"
+        android:name="com.nicklasslagbrand.feature.repo.details.RepoDetailsFragment"
         android:label="Details">
         <argument
             android:name="repo"

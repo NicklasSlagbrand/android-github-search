@@ -11,7 +11,7 @@ android {
     compileSdkVersion target_sdk
 
     defaultConfig {
-        applicationId = "com.nicklasslagbrand.baseline"
+        applicationId = "com.nicklasslagbrand"
         minSdkVersion min_sdk
         targetSdkVersion target_sdk
         versionCode 1
@@ -47,12 +47,12 @@ dependencies {
     implementation project(':core')
     //Android
     implementation("androidx.constraintlayout:constraintlayout:$constraintL_version")
-
-    //Kotlin
-    //implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    implementation("com.google.android.material:material:$material_version")
 
     //Dependency injection
     implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
 
     //Navigation
     implementation ("androidx.navigation:navigation-runtime-ktx:$navVersion")

@@ -20,9 +20,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar!!.setDisplayShowHomeEnabled(false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

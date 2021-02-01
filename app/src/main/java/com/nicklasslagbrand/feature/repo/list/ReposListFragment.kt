@@ -44,8 +44,6 @@ class ReposListFragment : Fragment() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 viewModel.searchRepositories(query)
-                SearchRecentSuggestions(requireActivity(), MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE)
-                    .saveRecentQuery(query, null)
                 return true
             }
 

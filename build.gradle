@@ -2,9 +2,14 @@
 buildscript {
     def kotlin_version = "1.4.21"
     def nav_version = "2.3.3"
+
     ext {
         kotlinVersion = kotlin_version
         navVersion = nav_version
+        constraintL_version = "2.0.4"
+        material_version = "1.2.1"
+        min_sdk = 21
+        target_sdk = 30
     }
     repositories {
         google()

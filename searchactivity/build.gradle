@@ -7,61 +7,48 @@ plugins {
 }
 
 android {
-
     compileSdkVersion target_sdk
 
     defaultConfig {
-        applicationId = "com.nicklasslagbrand.baseline"
+        applicationId "com.nicklasslagbrand.searchactivity"
         minSdkVersion min_sdk
         targetSdkVersion target_sdk
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        setSourceCompatibility JavaVersion.VERSION_1_8
-        setTargetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions { jvmTarget = '1.8' }
 
     lintOptions{ disable 'ContentDescription' }
     androidExtensions { experimental = true }
-    buildFeatures { viewBinding true }
-    dataBinding { enabled true}
+    buildFeatures {viewBinding true}
+    dataBinding {enabled true }
     viewBinding { enabled true }
 }
 
 dependencies {
-    def koinVersion = "2.2.1"
-    def paging_version = "3.0.0-alpha12"
-
     implementation project(':core')
+
     //Android
     implementation("androidx.constraintlayout:constraintlayout:$constraintL_version")
-
+    implementation("com.google.android.material:material:$material_version")
     //Kotlin
-    //implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-
-    //Dependency injection
-    implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 
     //Navigation
     implementation ("androidx.navigation:navigation-runtime-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation ("androidx.navigation:navigation-ui-ktx:$navVersion")
-
-    //Jetpack
-    implementation "androidx.startup:startup-runtime:1.0.0"
-    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
-
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 }

@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- Loco xml export: Android string resources
- Project: Baseline
- Release: Working copy
- Locale: en-DK, English (Denmark)
- Tagged: android
- Exported by: DK TeamMobile
- Exported at: Sat, 28 Mar 2020 07:51:59 +0000
--->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">App name</string>
+<resources>
+    <string name="app_name">Search</string>
     <string name="repositories">Repositories</string>
     <string name="search_title">Search</string>
     <string name="results_message">%1$d total results</string>

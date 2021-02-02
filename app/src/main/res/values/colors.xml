@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/darkSlateBlue</color>
-    <color name="colorPrimaryDark">#152b51</color>
-    <color name="colorAccent">#eff3fa</color>
+    <color name="colorPrimary">@color/darkBlue</color>
+    <color name="colorPrimaryDark">@color/extraDarkBlue</color>
+    <color name="colorAccent">@color/white</color>
 
     <!-- Project colors -->
-    <color name="darkSlateBlue">#1b3666</color>
+    <color name="white">#eff3fa</color>
+    <color name="darkBlue">#1b3666</color>
+    <color name="extraDarkBlue">#152b51</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.nicklasslagbrand.feature.repo
+package com.nicklasslagbrand.core.pagingSource
 
 import androidx.paging.PagingSource
 import com.nicklasslagbrand.core.entity.GithubRepo

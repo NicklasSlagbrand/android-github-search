@@ -19,12 +19,7 @@ class KoinInitializer: Initializer<KoinApplication> {
             androidLogger(Level.ERROR)
             androidContext(context)
 
-            modules(
-                listOf(
-                    coreModule,
-                    viewModelModule
-                )
-            )
+            modules(listOf(coreModule, viewModelModule))
         }
     }
     override fun dependencies(): MutableList<Class<out Initializer<*>>> = mutableListOf()

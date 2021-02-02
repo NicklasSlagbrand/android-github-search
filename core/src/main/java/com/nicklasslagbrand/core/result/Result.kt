@@ -1,6 +1,5 @@
 package com.nicklasslagbrand.core.result
 
-import com.nicklasslagbrand.core.exception.NoNetworkConnectionException
 import com.nicklasslagbrand.core.result.Result.Failure
 import com.nicklasslagbrand.core.result.Result.Success
 import java.lang.Exception
@@ -13,7 +12,7 @@ sealed class Result<out R> {
 internal inline fun <T> wrapResult(block: () -> T): Result<T> {
     return try {
         Success(block())
-    }catch (exception: NoNetworkConnectionException) {
+    }catch (exception: Exception) {
         Failure(exception)
     }
 }

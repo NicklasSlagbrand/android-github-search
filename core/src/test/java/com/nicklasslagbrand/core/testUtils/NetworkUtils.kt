@@ -20,10 +20,3 @@ fun successFromFile(fileName: String): MockResponse {
     )
     return MockResponse().setBody(buffer)
 }
-
-fun textFromFile(fileName: String): String {
-    return Buffer().readFrom(
-        ClassLoader.getSystemClassLoader()
-            .getResourceAsStream(fileName)
-    ).readString(Charset.defaultCharset())
-}

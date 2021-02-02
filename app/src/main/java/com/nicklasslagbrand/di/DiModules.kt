@@ -6,7 +6,6 @@ import com.nicklasslagbrand.core.Core
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-
 val coreModule = module {
     single { Core(context = get(), isDebug = BuildConfig.DEBUG).provideGithubRepository() }
 }

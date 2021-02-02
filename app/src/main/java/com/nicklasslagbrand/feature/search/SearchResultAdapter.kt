@@ -20,8 +20,6 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.RepoListVie
         notifyDataSetChanged()
     }
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoListViewHolder =
         RepoListViewHolder(
             LayoutInflater.from(parent.context).inflate(

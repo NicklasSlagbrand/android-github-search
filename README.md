@@ -22,3 +22,9 @@ Here are some useful Gradle/adb commands for executing this example:
  * `./gradlew runUnitTests` - Execute domain and data layer tests (both unit and integration)
  * `./gradlew runAcceptanceTests` - Execute espresso and instrumentation acceptance tests
 
+TODO:
+-----------------
+- Add commit history to Repo details 
+- Add readme to Repo details
+- Add Viewmodel testing
+- Add Instrumented testing.

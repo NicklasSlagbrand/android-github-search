@@ -1,15 +1,15 @@
 
-Android Kotlin Baseline MVVM
+Android Github Search app
 ==================================
 
-The goal of this project is to act as a template for other projects
+App seperated in 2 modules, App & Core. 
 
-Useful links
------------------
+App
+Android application containng all presentation logic. Build using MVVM pattern & Koin as a lightweight injection library.
 
-[Architecting Android](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/), [Architecting Android...The evolution](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/), [Architecting Android...Reloaded](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/)
+Core
+Acting as module, provides data through repositories to the App module.
 
-The development process follows [GitFlow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
 Development
 -----------------
